@@ -27,7 +27,7 @@ import {
   Share2,
 } from "lucide-react";
 
-import founderImg from "@/assets/founder-tejas.jpg";
+import founderImg from "@/assets/founder-tejas-new.jpeg";
 import heroBg from "@/assets/hero-bg.jpg";
 import case6 from "@/assets/case-6.jpg";
 
@@ -970,8 +970,12 @@ function Footer() {
         </div>
       </div>
       <div className="container-page mt-0 pt-3 border-t border-border flex flex-wrap justify-center text-center gap-3 text-xs text-muted-foreground">
-        <span>© {new Date().getFullYear()} Perspective Media Labs. All rights reserved.</span>
-        <span>Made with perspective, not templates.</span>
+        <span>
+          © 2026 All Rights Reserved By Perspective Media Labs and Designed By{" "}
+          <a href="https://webakoof.com" target="_blank" rel="noreferrer" className="font-semibold text-primary-deep underline underline-offset-2 hover:text-navy transition-colors">
+            Webakoof
+          </a>
+        </span>
       </div>
     </footer>
   );
