@@ -27,7 +27,7 @@ import {
   Share2,
 } from "lucide-react";
 
-import founderImg from "@/assets/founder-tejas-new.jpeg";
+import founderImg from "@/assets/founder-tejas-clear.jpeg";
 import heroBg from "@/assets/hero-bg.jpg";
 import case6 from "@/assets/case-6.jpg";
 
@@ -812,7 +812,7 @@ function Founder() {
       <div className="container-page grid md:grid-cols-12 gap-12 items-center">
         <div className="md:col-span-5">
           <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-elegant)]">
-            <img src={founderImg} alt="Tejas Rokhade, Founder" loading="lazy" className="w-full h-auto object-cover" />
+            <img src={founderImg} alt="Tejas Rokhade, Founder" loading="lazy" className="block aspect-[1070/1448] w-full h-full object-cover object-center" />
             <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-navy/90 to-transparent text-primary-foreground">
               <div className="text-xs uppercase tracking-widest opacity-80">Founder</div>
               <div className="font-serif text-2xl font-semibold">Tejas Rokhade</div>
