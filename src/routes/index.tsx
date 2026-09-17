@@ -112,7 +112,7 @@ const cases = [
   { img: "/skill-spark-card.png", tag: "HR CONSULTANCY SERVICES", industry: "HR CONSULTANCY SERVICES", title: "Skill Spark Consulting", scope: "Brand launch for a PCMC placement firm - identity, trademark, website, and collateral built from zero.", metric: "Complete brand launch", note: "for a new PCMC based placement firm; identity, trademark, digital presence, and collateral built from zero.", servicesTags: "Brand Strategy, Creative Direction, Social Media, GMB Optimization, LinkedIn Strategy, Corporate Communication, SEO, Content Strategy", seoMetaDescription: "How PML launched a Pune placement firm's full brand: trademark, GMB, social, and a website now cited organically by ChatGPT - zero ad spend.", stats: [{ v: "418 Users", l: "Organic website traffic - zero paid advertising" }, { v: "Traffic Source: ChatGPT", l: "AI platforms driving 153 sessions unprompted" }, { v: "160 Sessions", l: "Google organic reach within months of going live" }] },
   { img: "/rushivan-agro-card.png", tag: "AGRI-TOURISM", industry: "Consumer Fintech", title: "Rushivan Aagro", scope: "End-to-end digital build and marketing overhaul for a Pune-area farm stay and agri-tourism brand.", metric: "End-to-end digital build", note: "and marketing overhaul for a Pune-area farm stay and agri-tourism brand.", servicesTags: "Website Direction, Expo Branding, Creative Direction, Social Media, Performance Marketing, Digital Organization", seoMetaDescription: "Perspective Media Labs built a Razorpay-powered booking website, expo branding, and revived social media for Pune agri-tourism brand Rushivan Agro.", stats: [{ v: "5×", l: "App installs QoQ" }, { v: "60 days", l: "Optimization sprint" }, { v: "Full funnel", l: "Paid + ASO + lifecycle" }] },
   { img: "/healing-waves-card.png", tag: "HEALTHCARE", industry: "Regenerative Healthcare", title: "Healing Waves Clinic", scope: "Full-stack marketing concierge for a 4-branch Pune orthopaedic clinic - from zero systems to measurable growth.", metric: "A Big Wave In Healing Technology", note: "Clinic website + patient communication", servicesTags: "Digital Organisation, WhatsApp Automation, Performance Marketing, LinkedIn Strategy, Content Strategy, SEO, Website Direction, Corporate Communication", seoMetaDescription: "How Perspective Media Labs built marketing infrastructure for a 4-branch Pune orthopaedic clinic: systems, agency oversight, and 1,072% LinkedIn growth in 28 days.", stats: [{ v: "1,072%", l: "LinkedIn impression growth in 28 days" }, { v: "0 -> 85%", l: "Revenue tracking accuracy built from scratch" }, { v: "7 months", l: "End-to-end concierge across 4 clinics and 2 agencies" }] },
-  { img: "/homepage screenshot.png", tag: "FINANCIAL SERVICES", industry: "FINANCIAL SERVICES", title: "Jagruti Cooperative Credit Society Ltd.", scope: "Modernising the digital presence of a trusted cooperative credit society with decades of community legacy.", metric: "Modernising a trusted legacy", note: "through one consistent digital presence.", servicesTags: "Brand Strategy, Website Direction, Social Media, Digital Organization, GMB Optimization, SEO", seoMetaDescription: "How Perspective Media Labs modernised Jagruti Credit Society's 1998 legacy with a premium website, social presence and Google optimisation.", stats: [{ v: "1998", l: "Society established with community-first values" }, { v: "1 NEW WEBSITE", l: "Legacy brought into a modern digital format" }, { v: "3 DIGITAL CHANNELS", l: "Website, social and Google presence" }] },
+  { img: "/homepage screenshot.png", tag: "FINANCIAL SERVICES", industry: "FINANCIAL SERVICES", title: "Jagruti Cooperative Credit Society Ltd.", scope: "Modernising the digital presence of a trusted cooperative credit society with decades of community legacy.", metric: "Modernising a trusted legacy", note: "through one consistent digital presence.", servicesTags: "Brand Strategy, Website Direction, Social Media, Digital Organization, GMB Optimization, SEO", seoMetaDescription: "How Perspective Media Labs modernised Jagruti Credit Society's 1998 legacy with a premium website, social presence and Google optimisation.", stats: [{ v: "1998", l: "Society established with community-first values" }, { v: "1 New website", l: "Legacy brought into a modern digital format" }, { v: "3 Digital channels", l: "Website, social and Google presence" }] },
 ];
 
 const siteUrl = "https://perspective-ai-spark.lovable.app";
@@ -297,6 +297,49 @@ const legalDocuments = [
   },
 ];
 
+const faqs = [
+  {
+    question: "What is a marketing concierge?",
+    answer: "Your marketing department without building one. One senior partner handles strategy, social media, creative projects, and digital organization. One annual fee. One point of contact. You run your business. We run your marketing.",
+  },
+  {
+    question: "How is this different from hiring an agency?",
+    answer: "Agencies rotate junior teams, hide margins in bundled retainers, and deliver templated work. With us, the person doing the thinking is the person you talk to. Creative work is billed at actuals. You see every invoice. Zero markups. Zero surprises.",
+  },
+  {
+    question: "What does the partnership include?",
+    answer: "Strategic planning, brand positioning, 10-12 social media posts monthly, Google My Business management, WhatsApp and AI automation setup, digital file organization, and complete creative project management. Strategy is covered in your fee. Creative execution is billed separately at actual cost.",
+  },
+  {
+    question: "Do you mark up creative costs?",
+    answer: "No. When you need a website, brochure, video, or packaging, we get you 2-3 quotes from vetted specialists. You pick. Our direction and project management is already included. No hidden fees.",
+  },
+  {
+    question: "Which industries do you work with?",
+    answer: "MSMEs and startups across healthcare, real estate, manufacturing, agri-business, technology, professional services, hospitality, and import-export. If your business is doing Rs. 2-50 crore and your marketing feels scattered or expensive for what you get, this partnership is built for you.",
+  },
+  {
+    question: "Do you work with businesses outside Pune?",
+    answer: "Yes. We serve clients across Maharashtra, India, and internationally including UAE, UK, Europe, and Australia. The concierge model works seamlessly over remote collaboration with the same quality and responsiveness.",
+  },
+  {
+    question: "Is this only for large businesses?",
+    answer: "No. This is specifically designed for growing MSMEs and startups that need serious marketing but cannot justify a Rs. 50,000-70,000 monthly agency retainer or a full-time marketing hire at Rs. 4-6 lakh per year. Our model gives you both at a fraction of either.",
+  },
+  {
+    question: "What AI and automation do you set up?",
+    answer: "Practical tools that save your team 2-3 hours daily. WhatsApp AI chatbot for 24/7 customer response. Automated lead capture with instant team alerts. Google review collection on autopilot. Custom AI prompts for your team to draft professional messages in seconds. No complex software. No expensive subscriptions. All set up by us.",
+  },
+  {
+    question: "How quickly can we start seeing results?",
+    answer: "Tangible deliverables within 10 days. Social media live within 2 weeks. AI automations and digital organization set up in month one. By month 3, your communication runs consistently without the founder spending time on it.",
+  },
+  {
+    question: "How do I get in touch?",
+    answer: "Simple. Email us at connect@perspectivemedialabs.com or call/WhatsApp on 8668411092. Start with a free 30-minute conversation. No pitch deck. No obligation. Just an honest look at your current communication and the 2-3 things we would fix first.",
+  },
+];
+
 /* ---------- Page ---------- */
 
 function LandingPage() {
@@ -314,6 +357,7 @@ function LandingPage() {
       <Portfolio />
       <Testimonials />
       <Founder />
+      <FaqSection />
       <ContactSection />
       <Footer />
       <WhatsAppWidget />
@@ -364,7 +408,7 @@ function Hero() {
       />
       <div className="container-page relative grid items-center gap-8 pb-16 pt-5 md:grid-cols-12 md:gap-10 md:pb-32 md:pt-12">
         <div className="md:col-span-7 animate-fade-up text-center md:text-left">
-          <span className="eyebrow"><Sparkles className="w-3.5 h-3.5 shrink-0" /> India's marketing concierge for growing businesses</span>
+          <span className="eyebrow"><Sparkles className="w-3.5 h-3.5 shrink-0" /> India's first marketing concierge for growing businesses</span>
           <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.05] text-navy sm:text-5xl md:mt-6 md:text-7xl md:leading-[1.02]">
             Marketing that runs
             <span className="block italic text-primary-deep">like it's yours.</span>
@@ -477,13 +521,17 @@ function Services() {
                   </button>
                 </DialogTrigger>
                 <DialogContent className="w-[calc(100%-1.5rem)] max-w-md max-h-[88dvh] overflow-y-auto rounded-2xl border-primary/20 bg-card p-5 sm:p-8">
-                  <img
-                    src="/pml-logo-mark.svg"
-                    alt=""
+                  <div
                     aria-hidden="true"
-                    draggable={false}
-                    className="pointer-events-none absolute left-1/2 top-1/2 h-auto w-2/5 max-w-40 -translate-x-1/2 -translate-y-1/2 select-none object-contain opacity-10"
-                  />
+                    className="pointer-events-none absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 select-none overflow-hidden opacity-[0.12]"
+                  >
+                    <img
+                      src="/logo main.png"
+                      alt=""
+                      draggable={false}
+                      className="absolute -left-5 -top-1 h-52 w-auto max-w-none"
+                    />
+                  </div>
                   <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-deep grid place-items-center text-primary-foreground">
                     <s.icon className="w-6 h-6" aria-hidden="true" />
                   </div>
@@ -532,7 +580,7 @@ function Comparison() {
         <div className="mt-14 grid lg:grid-cols-[1.1fr_1.1fr_1.4fr] gap-6">
           <ComparisonCard variant="muted" title="In-house team" items={compare.map((r) => r.inhouse)} labels={compare.map((r) => r.label)} bad />
           <ComparisonCard variant="muted" title="Traditional agency" items={compare.map((r) => r.agency)} labels={compare.map((r) => r.label)} bad />
-          <ComparisonCard variant="primary" title="Perspective concierge" items={compare.map((r) => r.us)} labels={compare.map((r) => r.label)} />
+          <ComparisonCard variant="primary" title="The PML Model" items={compare.map((r) => r.us)} labels={compare.map((r) => r.label)} />
         </div>
       </div>
     </section>
@@ -671,7 +719,12 @@ function Portfolio() {
               {i < 3 ? (
                 <div aria-hidden="true" className="w-full" style={{ aspectRatio: "1896 / 882" }} />
               ) : (
-                <img src={c.img} alt={c.title} loading="lazy" className="block w-full object-cover aspect-[1896/882] transition-transform duration-500 group-hover:scale-105" />
+                <img
+                  src={c.img}
+                  alt={c.title}
+                  loading="lazy"
+                  className={`block w-full object-cover aspect-[1896/882] transition-transform duration-500 group-hover:scale-105 ${c.title === "Jagruti Cooperative Credit Society Ltd." ? "object-left" : "object-center"}`}
+                />
               )}
               <div className="px-6 py-4 min-h-[168px] md:h-[176px] md:overflow-hidden">
                 <div className="text-xs font-semibold uppercase tracking-widest text-primary-deep">{c.tag}</div>
@@ -929,6 +982,64 @@ function Founder() {
             <a href="https://www.linkedin.com/in/tejasrokhade/" target="_blank" rel="noopener noreferrer" className="btn-ghost text-sm" aria-label="View Tejas Rokhade on LinkedIn">
               LinkedIn <Linkedin className="w-4 h-4" />
             </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- FAQs ---------- */
+
+function FaqSection() {
+  const [activeFaq, setActiveFaq] = useState(0);
+  const faq = faqs[activeFaq];
+
+  return (
+    <section id="faqs" className="bg-surface py-24">
+      <div className="container-page grid gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-4">
+          <span className="eyebrow">Frequently asked questions</span>
+          <h2 className="mt-4 font-serif text-4xl font-semibold text-navy md:text-5xl">Straight answers before we start.</h2>
+          <p className="mt-4 text-base leading-relaxed text-navy-soft sm:text-lg">
+            Everything founders usually ask about the concierge model, costs, scope, and getting started.
+          </p>
+        </div>
+        <div className="flex min-h-80 flex-col justify-between border-y border-border py-6 sm:py-8 lg:col-span-8">
+          <div key={faq.question} className="animate-fade-up">
+            <div className="text-xs font-semibold uppercase tracking-widest text-primary-deep">
+              Question {activeFaq + 1} of {faqs.length}
+            </div>
+            <h3 className="mt-4 max-w-3xl font-serif text-2xl font-semibold leading-tight text-navy sm:text-3xl">
+              {faq.question}
+            </h3>
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-navy-soft sm:text-lg">
+              {faq.answer}
+            </p>
+          </div>
+
+          <div className="mt-8 flex items-center justify-between gap-4 border-t border-border pt-5">
+            <button
+              type="button"
+              onClick={() => setActiveFaq((index) => (index - 1 + faqs.length) % faqs.length)}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border px-4 text-sm font-semibold text-navy transition-colors hover:border-primary hover:text-primary-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label="Show previous FAQ"
+            >
+              <ArrowRight className="h-4 w-4 rotate-180" aria-hidden="true" /> Previous
+            </button>
+            <div className="hidden gap-1.5 sm:flex" aria-hidden="true">
+              {faqs.map((item, index) => (
+                <span key={item.question} className={`h-1.5 rounded-full transition-all ${index === activeFaq ? "w-6 bg-primary-deep" : "w-1.5 bg-border"}`} />
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => setActiveFaq((index) => (index + 1) % faqs.length)}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary/10 px-4 text-sm font-semibold text-primary-deep transition-colors hover:bg-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label="Show next FAQ"
+            >
+              Next <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </button>
           </div>
         </div>
       </div>
