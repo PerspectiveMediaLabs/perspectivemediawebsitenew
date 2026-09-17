@@ -190,3 +190,23 @@
 @utility animate-fade-up {
   animation: fade-up 700ms ease both;
 }
+
+@media (max-width: 767px) {
+  body section.py-24 {
+    padding-block: 4rem;
+  }
+
+  section h2.text-4xl {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  .container-page {
+    padding-inline: 1rem;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    min-height: 2.75rem;
+  }
+}

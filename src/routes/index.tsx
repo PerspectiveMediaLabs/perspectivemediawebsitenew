@@ -333,9 +333,9 @@ function Nav() {
   ];
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/80 border-b border-border">
-      <div className="container-page flex items-center justify-between h-18 py-3">
+      <div className="container-page flex h-20 items-center justify-between gap-2 py-2 md:h-24">
         <a href="#top" className="flex items-center gap-3 min-w-0">
-          <img src="/logo main.png" alt="Perspective Media Labs" className="h-12 w-auto max-w-[62vw] shrink-0 object-contain" />
+          <img src="/logo main.png" alt="Perspective Media Labs" className="h-14 w-auto max-w-[58vw] shrink-0 object-contain md:h-16 md:max-w-none" />
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
@@ -344,7 +344,7 @@ function Nav() {
             </a>
           ))}
         </nav>
-        <a href="#contact" className="btn-primary text-sm">
+        <a href="#contact" className="btn-primary shrink-0 px-3 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm">
           Book a call <ArrowRight className="w-4 h-4" />
         </a>
       </div>
@@ -362,14 +362,14 @@ function Hero() {
         className="absolute inset-0 opacity-40 pointer-events-none"
         style={{ backgroundImage: `url(${heroBg})`, backgroundSize: "cover", backgroundPosition: "right center", maskImage: "linear-gradient(to left, black, transparent 70%)" }}
       />
-      <div className="container-page relative pt-5 pb-24 md:pt-12 md:pb-32 grid md:grid-cols-12 gap-10 items-center">
+      <div className="container-page relative grid items-center gap-8 pb-16 pt-5 md:grid-cols-12 md:gap-10 md:pb-32 md:pt-12">
         <div className="md:col-span-7 animate-fade-up text-center md:text-left">
           <span className="eyebrow"><Sparkles className="w-3.5 h-3.5 shrink-0" /> India's marketing concierge for growing businesses</span>
-          <h1 className="mt-4 md:mt-6 font-serif text-5xl md:text-7xl font-semibold text-navy leading-[1.02]">
+          <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.05] text-navy sm:text-5xl md:mt-6 md:text-7xl md:leading-[1.02]">
             Marketing that runs
             <span className="block italic text-primary-deep">like it's yours.</span>
           </h1>
-          <p className="mt-6 text-lg text-navy-soft max-w-xl leading-relaxed text-justify md:text-left">
+          <p className="mt-6 max-w-xl text-left text-base leading-relaxed text-navy-soft sm:text-lg">
             One senior concierge. Smarter tools doing the heavy lifting. A partner that thinks like a founder, ships like an operator, and reports like a CFO - built for Indian MSMEs and startups.
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
@@ -391,7 +391,7 @@ function Hero() {
               <div className="flex items-center justify-between text-xs uppercase tracking-widest opacity-80">
                 <span>Concierge dashboard</span><span>This week</span>
               </div>
-              <div className="mt-4 font-serif text-3xl">₹4.8L saved · 2.1× ROAS</div>
+              <div className="mt-4 font-serif text-2xl sm:text-3xl">₹4.8L saved · 2.1× ROAS</div>
               <div className="mt-2 text-sm opacity-90">Strategy, brand, and execution - owned end to end.</div>
             </div>
             <div className="p-6 space-y-4">
@@ -476,13 +476,13 @@ function Services() {
                     Know more <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </button>
                 </DialogTrigger>
-                <DialogContent className="w-[calc(100%-2rem)] max-w-md max-h-[85dvh] overflow-y-auto rounded-2xl sm:rounded-2xl border-primary/20 bg-card p-6 sm:p-8">
+                <DialogContent className="w-[calc(100%-1.5rem)] max-w-md max-h-[88dvh] overflow-y-auto rounded-2xl border-primary/20 bg-card p-5 sm:p-8">
                   <img
-                    src="/logo main.png"
+                    src="/pml-logo-mark.svg"
                     alt=""
                     aria-hidden="true"
                     draggable={false}
-                    className="pointer-events-none absolute left-1/2 top-1/2 h-auto w-4/5 max-w-sm -translate-x-1/2 -translate-y-1/2 select-none object-contain opacity-[0.045]"
+                    className="pointer-events-none absolute left-1/2 top-1/2 h-auto w-2/5 max-w-40 -translate-x-1/2 -translate-y-1/2 select-none object-contain opacity-10"
                   />
                   <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-deep grid place-items-center text-primary-foreground">
                     <s.icon className="w-6 h-6" aria-hidden="true" />
@@ -627,7 +627,6 @@ function Approach() {
 /* ---------- Portfolio ---------- */
 
 function Portfolio() {
-  const [mobileCard, setMobileCard] = useState(0);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const active = openIdx !== null ? cases[openIdx] : null;
   const activeScreenshots = active?.title === "Ekvira Export House Pvt. Ltd." ? ekviraScreenshots : active?.title === "Impact Infraheights Pvt Ltd" ? impactScreenshots : active?.title === "Skill Spark Consulting" ? skillSparkScreenshots : active?.title === "Rushivan Aagro" ? rushivanScreenshots : active?.title === "Healing Waves Clinic" ? healingWavesScreenshots : active?.title === "Jagruti Cooperative Credit Society Ltd." ? jagrutiScreenshots : null;
@@ -667,7 +666,7 @@ function Portfolio() {
               type="button"
               onClick={() => setOpenIdx(i)}
               style={i < 3 ? { display: "block", margin: 0, padding: 0, verticalAlign: "top", backgroundImage: `url(${c.img})`, backgroundPosition: "top center", backgroundRepeat: "no-repeat", backgroundSize: "100% auto" } : undefined}
-              className={`group card-elevated self-start overflow-hidden p-0 align-top text-left w-full min-w-0 ${i === mobileCard ? "block" : "hidden md:block"}`}
+              className="group card-elevated block w-full min-w-0 self-start overflow-hidden p-0 align-top text-left"
             >
               {i < 3 ? (
                 <div aria-hidden="true" className="w-full" style={{ aspectRatio: "1896 / 882" }} />
@@ -684,22 +683,12 @@ function Portfolio() {
         </div>
       </div>
 
-      <div className="container-page mt-6 flex items-center justify-between gap-4 md:hidden" aria-label="Work card navigation">
-        <button type="button" onClick={() => setMobileCard((index) => (index - 1 + cases.length) % cases.length)} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary/10 px-4 text-sm font-semibold text-primary-deep hover:bg-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-          <ArrowRight className="h-4 w-4 rotate-180" aria-hidden="true" /> Previous
-        </button>
-        <span className="text-sm text-navy-soft" aria-live="polite" aria-atomic="true">{mobileCard + 1} / {cases.length}</span>
-        <button type="button" onClick={() => setMobileCard((index) => (index + 1) % cases.length)} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary/10 px-4 text-sm font-semibold text-primary-deep hover:bg-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-          Next <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </button>
-      </div>
-
       {active && (
         <div
           role="dialog"
           aria-modal="true"
           aria-label={`${active.title} case study`}
-          className="fixed inset-0 z-[60] grid place-items-center p-4 md:p-8 bg-navy/70 backdrop-blur-sm animate-fade-up"
+          className="fixed inset-0 z-[60] grid place-items-center p-2 sm:p-4 md:p-8 bg-navy/70 backdrop-blur-sm animate-fade-up"
           onClick={() => setOpenIdx(null)}
         >
           <div
@@ -715,7 +704,7 @@ function Portfolio() {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="p-8 md:p-10 border-b border-border">
+            <div className="p-5 sm:p-8 md:p-10 border-b border-border">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-xs font-semibold uppercase tracking-widest text-primary-deep bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">{active.industry}</span>
               </div>
@@ -723,7 +712,7 @@ function Portfolio() {
               <p className="mt-3 text-navy-soft leading-relaxed max-w-2xl">{active.scope}</p>
             </div>
 
-            <div className="p-8 md:p-10 border-b border-border">
+            <div className="p-5 sm:p-8 md:p-10 border-b border-border">
               <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">Platform screenshots</div>
               <div className="flex gap-4 overflow-x-auto pb-2 -mx-2 px-2 snap-x snap-mandatory">
                 {activeScreenshots ? activeScreenshots.map((screenshot, index) => (
@@ -749,7 +738,7 @@ function Portfolio() {
               </div>
             </div>
 
-            <div className="p-8 md:p-10 border-b border-border">
+            <div className="p-5 sm:p-8 md:p-10 border-b border-border">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {active.stats.map((s) => (
                   <div key={s.l} className="rounded-2xl border border-border bg-surface p-5">
@@ -760,7 +749,7 @@ function Portfolio() {
               </div>
             </div>
 
-            <div className="p-8 md:p-10 border-b border-border space-y-8">
+            <div className="p-5 sm:p-8 md:p-10 border-b border-border space-y-8">
               {active.title === "Impact Infraheights Pvt Ltd" && (
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">The challenge</div>
@@ -838,7 +827,7 @@ function Portfolio() {
               )}
             </div>
 
-            <div className="p-8 md:p-10 flex flex-wrap items-center justify-between gap-4">
+            <div className="p-5 sm:p-8 md:p-10 flex flex-wrap items-center justify-between gap-4">
               <p className="text-sm text-muted-foreground">Want a plan like this for your business?</p>
               <button type="button" onClick={handleCta} className="btn-primary">
                 Get a similar plan <ArrowRight className="w-4 h-4" />
@@ -976,7 +965,7 @@ function ContactSection() {
           <h2 className="mt-4 font-serif text-4xl md:text-5xl font-semibold">Let's map your first 90 days.</h2>
           <p className="mt-4 text-white/70 text-lg">Free 30-minute audit. No pitch deck. Just a real look at what's working, what isn't, and what one concierge could unlock.</p>
           <ul className="mt-8 space-y-4 text-white/85">
-            <li className="flex items-center gap-3"><Mail className="w-5 h-5 text-primary" /> connect@perspectivemedialabs.com</li>
+            <li className="flex min-w-0 items-center gap-3"><Mail className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-0 break-all">connect@perspectivemedialabs.com</span></li>
             <li className="flex items-center gap-3"><Phone className="w-5 h-5 text-primary" /> +91 8668411092</li>
           </ul>
           <div className="relative mt-6 aspect-square w-full overflow-hidden rounded-2xl border border-white/15 bg-white/5 md:aspect-auto md:min-h-24 md:flex-1">
@@ -994,7 +983,7 @@ function ContactSection() {
           ref={formRef}
           autoComplete="off"
           onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-          className="md:col-span-7 self-start bg-white/[0.04] backdrop-blur border border-white/10 rounded-3xl p-8 pb-6 space-y-5"
+          className="md:col-span-7 self-start bg-white/[0.04] backdrop-blur border border-white/10 rounded-3xl p-5 pb-5 sm:p-8 sm:pb-6 space-y-5"
         >
           <div className="grid md:grid-cols-2 gap-5">
             <Field label="Your name" name="name" placeholder="Enter your full name" />
@@ -1107,7 +1096,7 @@ function LegalDialog({ legalDocument }: { legalDocument: (typeof legalDocuments)
           {legalDocument.title}
         </button>
       </DialogTrigger>
-      <DialogContent className="w-[calc(100%-2rem)] max-w-2xl max-h-[85dvh] overflow-y-auto rounded-2xl border-primary/20 bg-card p-6 sm:p-8">
+      <DialogContent className="w-[calc(100%-1.5rem)] max-w-2xl max-h-[88dvh] overflow-y-auto rounded-2xl border-primary/20 bg-card p-5 sm:p-8">
         <DialogHeader className="text-left">
           <DialogTitle className="font-serif text-2xl leading-tight text-navy">{legalDocument.title}</DialogTitle>
           <DialogDescription className="pt-2 text-sm leading-relaxed text-navy-soft">
