@@ -83,6 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Perspective Media Labs - India's Marketing Concierge for Growing Businesses" },
       { property: "og:description", content: "A smarter way for MSMEs and startups to run marketing. One concierge, strategy-led, senior attention - without the agency overhead." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.perspectivemedialabs.com/" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Perspective Media Labs - India's Marketing Concierge for Growing Businesses" },
       { name: "twitter:description", content: "A smarter way for MSMEs and startups to run marketing. One concierge, strategy-led, senior attention - without the agency overhead." },
@@ -91,6 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: "https://www.perspectivemedialabs.com/" },
       { rel: "icon", href: "/logo main.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },

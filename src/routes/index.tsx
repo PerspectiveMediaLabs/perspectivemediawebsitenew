@@ -115,7 +115,7 @@ const cases = [
   { img: "/homepage screenshot.png", tag: "FINANCIAL SERVICES", industry: "FINANCIAL SERVICES", title: "Jagruti Cooperative Credit Society Ltd.", scope: "Modernising the digital presence of a trusted cooperative credit society with decades of community legacy.", metric: "Modernising a trusted legacy", note: "through one consistent digital presence.", servicesTags: "Brand Strategy, Website Direction, Social Media, Digital Organization, GMB Optimization, SEO", seoMetaDescription: "How Perspective Media Labs modernised Jagruti Credit Society's 1998 legacy with a premium website, social presence and Google optimisation.", stats: [{ v: "1998", l: "Society established with community-first values" }, { v: "1 New website", l: "Legacy brought into a modern digital format" }, { v: "3 Digital channels", l: "Website, social and Google presence" }] },
 ];
 
-const siteUrl = "https://perspective-ai-spark.lovable.app";
+const siteUrl = "https://www.perspectivemedialabs.com";
 const toAbsoluteUrl = (path: string) => (path.startsWith("http") ? path : `${siteUrl}${path}`);
 
 const portfolioJsonLd = {
