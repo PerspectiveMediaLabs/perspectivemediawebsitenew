@@ -112,7 +112,7 @@ const cases = [
   { img: "/skill-spark-card.png", tag: "HR CONSULTANCY SERVICES", industry: "HR CONSULTANCY SERVICES", title: "Skill Spark Consulting", scope: "Brand launch for a PCMC placement firm - identity, trademark, website, and collateral built from zero.", metric: "Complete brand launch", note: "for a new PCMC based placement firm; identity, trademark, digital presence, and collateral built from zero.", servicesTags: "Brand Strategy, Creative Direction, Social Media, GMB Optimization, LinkedIn Strategy, Corporate Communication, SEO, Content Strategy", seoMetaDescription: "How PML launched a Pune placement firm's full brand: trademark, GMB, social, and a website now cited organically by ChatGPT - zero ad spend.", stats: [{ v: "418 Users", l: "Organic website traffic - zero paid advertising" }, { v: "Traffic Source: ChatGPT", l: "AI platforms driving 153 sessions unprompted" }, { v: "160 Sessions", l: "Google organic reach within months of going live" }] },
   { img: "/rushivan-agro-card.png", tag: "AGRI-TOURISM", industry: "Consumer Fintech", title: "Rushivan Aagro", scope: "End-to-end digital build and marketing overhaul for a Pune-area farm stay and agri-tourism brand.", metric: "End-to-end digital build", note: "and marketing overhaul for a Pune-area farm stay and agri-tourism brand.", servicesTags: "Website Direction, Expo Branding, Creative Direction, Social Media, Performance Marketing, Digital Organization", seoMetaDescription: "Perspective Media Labs built a Razorpay-powered booking website, expo branding, and revived social media for Pune agri-tourism brand Rushivan Agro.", stats: [{ v: "5×", l: "App installs QoQ" }, { v: "60 days", l: "Optimization sprint" }, { v: "Full funnel", l: "Paid + ASO + lifecycle" }] },
   { img: "/healing-waves-card.png", tag: "HEALTHCARE", industry: "Regenerative Healthcare", title: "Healing Waves Clinic", scope: "Full-stack marketing concierge for a 4-branch Pune orthopaedic clinic - from zero systems to measurable growth.", metric: "A Big Wave In Healing Technology", note: "Clinic website + patient communication", servicesTags: "Digital Organisation, WhatsApp Automation, Performance Marketing, LinkedIn Strategy, Content Strategy, SEO, Website Direction, Corporate Communication", seoMetaDescription: "How Perspective Media Labs built marketing infrastructure for a 4-branch Pune orthopaedic clinic: systems, agency oversight, and 1,072% LinkedIn growth in 28 days.", stats: [{ v: "1,072%", l: "LinkedIn impression growth in 28 days" }, { v: "0 -> 85%", l: "Revenue tracking accuracy built from scratch" }, { v: "7 months", l: "End-to-end concierge across 4 clinics and 2 agencies" }] },
-  { img: "/jagruti-logo-clean.png", tag: "FINANCIAL SERVICES", industry: "FINANCIAL SERVICES", title: "Jagruti Cooperative Credit Society Ltd.", scope: "Modernising the digital presence of a trusted cooperative credit society with decades of community legacy.", metric: "Modernising a trusted legacy", note: "through one consistent digital presence.", servicesTags: "Brand Strategy, Website Direction, Social Media, Digital Organization, GMB Optimization, SEO", seoMetaDescription: "How Perspective Media Labs modernised Jagruti Credit Society's 1998 legacy with a premium website, social presence and Google optimisation.", stats: [{ v: "1998", l: "Society established with community-first values" }, { v: "1 NEW WEBSITE", l: "Legacy brought into a modern digital format" }, { v: "3 DIGITAL CHANNELS", l: "Website, social and Google presence" }] },
+  { img: "/homepage screenshot.png", tag: "FINANCIAL SERVICES", industry: "FINANCIAL SERVICES", title: "Jagruti Cooperative Credit Society Ltd.", scope: "Modernising the digital presence of a trusted cooperative credit society with decades of community legacy.", metric: "Modernising a trusted legacy", note: "through one consistent digital presence.", servicesTags: "Brand Strategy, Website Direction, Social Media, Digital Organization, GMB Optimization, SEO", seoMetaDescription: "How Perspective Media Labs modernised Jagruti Credit Society's 1998 legacy with a premium website, social presence and Google optimisation.", stats: [{ v: "1998", l: "Society established with community-first values" }, { v: "1 NEW WEBSITE", l: "Legacy brought into a modern digital format" }, { v: "3 DIGITAL CHANNELS", l: "Website, social and Google presence" }] },
 ];
 
 const siteUrl = "https://perspective-ai-spark.lovable.app";
@@ -335,9 +335,7 @@ function Nav() {
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/80 border-b border-border">
       <div className="container-page flex items-center justify-between h-18 py-3">
         <a href="#top" className="flex items-center gap-3 min-w-0">
-          <span className="relative block h-12 w-[220px] max-w-[62vw] shrink-0 overflow-hidden" aria-label="Perspective Media Labs">
-            <img src="/logo main.png" alt="" className="absolute left-1/2 top-1/2 w-[220px] max-w-none -translate-x-1/2 -translate-y-1/2" />
-          </span>
+          <img src="/logo main.png" alt="Perspective Media Labs" className="h-12 w-auto max-w-[62vw] shrink-0 object-contain" />
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
@@ -674,7 +672,7 @@ function Portfolio() {
               {i < 3 ? (
                 <div aria-hidden="true" className="w-full" style={{ aspectRatio: "1896 / 882" }} />
               ) : (
-                <img src={c.img} alt={c.title} loading="lazy" className={`block w-full aspect-[1896/882] transition-transform duration-500 group-hover:scale-105 ${c.title === "Jagruti Cooperative Credit Society Ltd." ? "bg-white object-contain p-6" : "object-cover"}`} />
+                <img src={c.img} alt={c.title} loading="lazy" className="block w-full object-cover aspect-[1896/882] transition-transform duration-500 group-hover:scale-105" />
               )}
               <div className="px-6 py-4 min-h-[168px] md:h-[176px] md:overflow-hidden">
                 <div className="text-xs font-semibold uppercase tracking-widest text-primary-deep">{c.tag}</div>
@@ -1056,9 +1054,7 @@ function Footer() {
       <div className="hidden">
         <div>
           <div className="flex items-center gap-3">
-            <span className="relative block h-11 w-52 overflow-hidden" aria-label="Perspective Media Labs">
-              <img src="/logo main.png" alt="" className="absolute left-1/2 top-1/2 w-52 max-w-none -translate-x-1/2 -translate-y-1/2" />
-            </span>
+            <img src="/logo main.png" alt="Perspective Media Labs" className="h-11 w-auto max-w-52 object-contain" />
             <div>
               <div className="font-semibold text-navy">Perspective Media Labs</div>
             </div>
