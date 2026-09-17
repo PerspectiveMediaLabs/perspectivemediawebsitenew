@@ -1,0 +1,198 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.getperspective.in/#logo",
+      "url": "https://www.getperspective.in/logo%20main.png",
+      "contentUrl": "https://www.getperspective.in/logo%20main.png",
+      "caption": "Perspective Media Labs logo"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.getperspective.in/#organization",
+      "name": "Perspective Media Labs",
+      "alternateName": "PML",
+      "url": "https://www.getperspective.in",
+      "logo": { "@id": "https://www.getperspective.in/#logo" },
+      "image": "https://www.getperspective.in/logo%20main.png",
+      "description": "A dedicated marketing partner for MSMEs and startups. Strategy, social media, AI automation, and creative execution under one annual partnership with transparent pricing.",
+      "foundingDate": "2025",
+      "founder": { "@id": "https://www.getperspective.in/#founder" },
+      "telephone": "+918668411092",
+      "email": "connect@perspectivemedialabs.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 18.6441317,
+        "longitude": 73.8501899
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Pune" },
+        { "@type": "Country", "name": "India" },
+        { "@type": "Country", "name": "United Arab Emirates" },
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "Australia" }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "@id": "https://www.getperspective.in/#contactpoint",
+        "telephone": "+918668411092",
+        "email": "connect@perspectivemedialabs.com",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Hindi", "Marathi"]
+      },
+      "knowsAbout": [
+        "Marketing strategy for MSMEs",
+        "Brand positioning",
+        "Strategic communication",
+        "Social media management",
+        "AI automation for small business",
+        "Digital marketing for startups",
+        "Marketing concierge services",
+        "WhatsApp business automation",
+        "Google Business Profile optimization",
+        "Creative project management"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "@id": "https://www.getperspective.in/#services",
+        "name": "Marketing Concierge Services",
+        "itemListElement": [
+          { "@id": "https://www.getperspective.in/#service-strategy" },
+          { "@id": "https://www.getperspective.in/#service-brand" },
+          { "@id": "https://www.getperspective.in/#service-content" },
+          { "@id": "https://www.getperspective.in/#service-social" },
+          { "@id": "https://www.getperspective.in/#service-website" },
+          { "@id": "https://www.getperspective.in/#service-ai" }
+        ]
+      },
+      "slogan": "Marketing that runs like it's yours."
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.getperspective.in/#localbusiness",
+      "name": "Perspective Media Labs",
+      "url": "https://www.getperspective.in",
+      "image": "https://www.getperspective.in/logo%20main.png",
+      "logo": { "@id": "https://www.getperspective.in/#logo" },
+      "telephone": "+918668411092",
+      "email": "connect@perspectivemedialabs.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 18.6441317,
+        "longitude": 73.8501899
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      "priceRange": "$$",
+      "parentOrganization": { "@id": "https://www.getperspective.in/#organization" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.getperspective.in/#website",
+      "url": "https://www.getperspective.in",
+      "name": "Perspective Media Labs",
+      "description": "A dedicated marketing partner for MSMEs and startups in India.",
+      "publisher": { "@id": "https://www.getperspective.in/#organization" },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.getperspective.in/#webpage",
+      "url": "https://www.getperspective.in",
+      "name": "Perspective Media Labs | Marketing Partner for MSMEs & Startups",
+      "description": "A dedicated marketing partner for MSMEs and startups. Strategy, social media, AI automation, and creative execution under one annual partnership. Transparent pricing. No markups. Pune-based, serving India, UAE, UK, and Australia.",
+      "isPartOf": { "@id": "https://www.getperspective.in/#website" },
+      "about": { "@id": "https://www.getperspective.in/#organization" },
+      "inLanguage": "en-IN",
+      "dateModified": "2026-09-16"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.getperspective.in/#founder",
+      "name": "Tejas Rokhade",
+      "jobTitle": "Founder",
+      "image": "https://www.getperspective.in/assets/founder-tejas-clear-uc9kanW1.jpeg",
+      "sameAs": ["https://www.linkedin.com/in/tejasrokhade/"],
+      "worksFor": { "@id": "https://www.getperspective.in/#organization" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Cardiff School of Management, Cardiff Metropolitan University" },
+        { "@type": "CollegeOrUniversity", "name": "Whistling Woods International, Mumbai" }
+      ],
+      "knowsAbout": [
+        "Marketing strategy",
+        "Brand positioning",
+        "MSME marketing",
+        "AI automation",
+        "Strategic communication",
+        "Social media analytics"
+      ],
+      "description": "Founder of Perspective Media Labs. MBA in Business and Social Media Analytics from Cardiff School of Management, UK. BBA in Media and Communication from Whistling Woods International, Mumbai."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.getperspective.in/#service-strategy",
+      "name": "Strategy and Positioning",
+      "description": "Brand positioning, market analysis, and communication strategy to define who you are, who you serve, and why you win.",
+      "provider": { "@id": "https://www.getperspective.in/#organization" },
+      "serviceType": "Marketing Strategy",
+      "areaServed": { "@type": "Country", "name": "India" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.getperspective.in/#service-brand",
+      "name": "Brand and Design",
+      "description": "Brand identity, investor decks, brochures, stationery, and packaging designed by vetted specialists and directed by the concierge team.",
+      "provider": { "@id": "https://www.getperspective.in/#organization" },
+      "serviceType": "Brand Design"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.getperspective.in/#service-content",
+      "name": "Content and Copy",
+      "description": "Content strategy and copywriting delivered consistently through a weekly content engine in the brand's own voice.",
+      "provider": { "@id": "https://www.getperspective.in/#organization" },
+      "serviceType": "Content Marketing"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.getperspective.in/#service-social",
+      "name": "Social Media and Performance Marketing",
+      "description": "Organic and paid social media management including content calendars, community management, and campaigns across Meta, Google, and LinkedIn.",
+      "provider": { "@id": "https://www.getperspective.in/#organization" },
+      "serviceType": "Social Media Marketing"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.getperspective.in/#service-website",
+      "name": "Website and Digital Presence",
+      "description": "Business websites, landing pages, Google Business Profile optimization, and SEO managed end to end.",
+      "provider": { "@id": "https://www.getperspective.in/#organization" },
+      "serviceType": "Website Development and SEO"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.getperspective.in/#service-ai",
+      "name": "AI Automations and Reporting",
+      "description": "WhatsApp automation, lead capture systems, CRM setup, AI chatbot configuration, and consolidated monthly reporting.",
+      "provider": { "@id": "https://www.getperspective.in/#organization" },
+      "serviceType": "Marketing Automation"
+    }
+  ]
+}

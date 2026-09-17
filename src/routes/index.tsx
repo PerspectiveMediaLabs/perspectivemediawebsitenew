@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogTrigger, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import {
   ArrowRight,
   Sparkles,
@@ -25,15 +25,20 @@ import {
   Quote,
   Globe,
   Share2,
+  Linkedin,
 } from "lucide-react";
 
 import founderImg from "@/assets/founder-tejas-clear.jpeg";
 import heroBg from "@/assets/hero-bg.jpg";
-import case6 from "@/assets/case-6.jpg";
+import businessJsonLd from "@/data/pml-schema-final.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(businessJsonLd),
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify(portfolioJsonLd),
@@ -68,13 +73,37 @@ const services = [
   { icon: Bot, title: "AI Automations and Reporting", desc: "Lead capture, WhatsApp automation, CRM hygiene, and monthly reports - One dashboard, one story." },
 ];
 
-const serviceDetails: Record<string, string[]> = {
-  "Strategy and Positioning": ["Understand your audience, competitors, and market opportunities.", "Define your positioning, key messages, and brand voice.", "Build a practical marketing roadmap around your business goals."],
-  "Brand and Design": ["Create a consistent visual identity across your brand touchpoints.", "Design pitch decks, brochures, stationery, and packaging.", "Coordinate specialist designers through one accountable point of contact."],
-  "Content and Copy": ["Plan content themes and a regular publishing calendar.", "Write website copy, social posts, and campaign messaging in your brand voice.", "Keep content consistent with your audience and marketing goals."],
-  "Social Media and Performance": ["Plan and manage organic content and community conversations.", "Build paid campaigns across Meta, Google, and LinkedIn.", "Review creative and campaign performance to guide ongoing improvements."],
-  "Website and Digital Presence": ["Create landing pages and business websites with clear customer journeys.", "Improve your Google Business Profile and search visibility.", "Coordinate copy, design, and development from brief to launch."],
-  "AI Automations and Reporting": ["Connect lead capture and WhatsApp follow-ups to your workflow.", "Organise CRM data and automate repetitive marketing tasks.", "Bring key results into a clear dashboard and monthly report."],
+const serviceDetails: Record<string, { intro: string; points: string[]; cta: string }> = {
+  "Strategy and Positioning": {
+    intro: "Know where to play and what to say.",
+    points: ["Market, audience, positioning and messaging.", "Practical strategies built around business goals and budgets.", "Clear priorities. Less marketing guesswork."],
+    cta: "Talk Strategy",
+  },
+  "Brand and Design": {
+    intro: "Make your business look as credible as it operates.",
+    points: ["Brand identity, presentations, brochures and business collateral.", "Consistent design built around your positioning.", "Creative execution, without agency layers."],
+    cta: "Build Your Brand",
+  },
+  "Content and Copy": {
+    intro: "Say something worth remembering.",
+    points: ["Content strategy, website copy and social media content.", "B2B storytelling that makes complex businesses easier to understand.", "A clear voice across every channel."],
+    cta: "Plan Content",
+  },
+  "Social Media and Performance": {
+    intro: "Be present where your customers actually look.",
+    points: ["Organic social media and paid campaigns.", "LinkedIn, Meta and Google - chosen for the objective, not the trend.", "Track what moves from attention to enquiry."],
+    cta: "Grow Your Reach",
+  },
+  "Website and Digital Presence": {
+    intro: "Your digital presence should work as hard as your business.",
+    points: ["Business websites, landing pages and Google Business Profile.", "SEO built for search and AI discovery.", "One consistent presence across Google, website and social."],
+    cta: "Go Digital",
+  },
+  "AI Automations and Reporting": {
+    intro: "Less manual work. Better visibility.",
+    points: ["Lead capture, WhatsApp and CRM workflows.", "Automate repetitive marketing tasks without losing control.", "Simple reporting that shows what's working and what's not."],
+    cta: "Automate Better",
+  },
 };
 
 const cases = [
@@ -83,7 +112,7 @@ const cases = [
   { img: "/skill-spark-card.png", tag: "HR CONSULTANCY SERVICES", industry: "HR CONSULTANCY SERVICES", title: "Skill Spark Consulting", scope: "Brand launch for a PCMC placement firm - identity, trademark, website, and collateral built from zero.", metric: "Complete brand launch", note: "for a new PCMC based placement firm; identity, trademark, digital presence, and collateral built from zero.", servicesTags: "Brand Strategy, Creative Direction, Social Media, GMB Optimization, LinkedIn Strategy, Corporate Communication, SEO, Content Strategy", seoMetaDescription: "How PML launched a Pune placement firm's full brand: trademark, GMB, social, and a website now cited organically by ChatGPT - zero ad spend.", stats: [{ v: "418 Users", l: "Organic website traffic - zero paid advertising" }, { v: "Traffic Source: ChatGPT", l: "AI platforms driving 153 sessions unprompted" }, { v: "160 Sessions", l: "Google organic reach within months of going live" }] },
   { img: "/rushivan-agro-card.png", tag: "AGRI-TOURISM", industry: "Consumer Fintech", title: "Rushivan Aagro", scope: "End-to-end digital build and marketing overhaul for a Pune-area farm stay and agri-tourism brand.", metric: "End-to-end digital build", note: "and marketing overhaul for a Pune-area farm stay and agri-tourism brand.", servicesTags: "Website Direction, Expo Branding, Creative Direction, Social Media, Performance Marketing, Digital Organization", seoMetaDescription: "Perspective Media Labs built a Razorpay-powered booking website, expo branding, and revived social media for Pune agri-tourism brand Rushivan Agro.", stats: [{ v: "5×", l: "App installs QoQ" }, { v: "60 days", l: "Optimization sprint" }, { v: "Full funnel", l: "Paid + ASO + lifecycle" }] },
   { img: "/healing-waves-card.png", tag: "HEALTHCARE", industry: "Regenerative Healthcare", title: "Healing Waves Clinic", scope: "Full-stack marketing concierge for a 4-branch Pune orthopaedic clinic - from zero systems to measurable growth.", metric: "A Big Wave In Healing Technology", note: "Clinic website + patient communication", servicesTags: "Digital Organisation, WhatsApp Automation, Performance Marketing, LinkedIn Strategy, Content Strategy, SEO, Website Direction, Corporate Communication", seoMetaDescription: "How Perspective Media Labs built marketing infrastructure for a 4-branch Pune orthopaedic clinic: systems, agency oversight, and 1,072% LinkedIn growth in 28 days.", stats: [{ v: "1,072%", l: "LinkedIn impression growth in 28 days" }, { v: "0 -> 85%", l: "Revenue tracking accuracy built from scratch" }, { v: "7 months", l: "End-to-end concierge across 4 clinics and 2 agencies" }] },
-  { img: case6, tag: "Fashion D2C", industry: "Fashion & Apparel", title: "Onward Studios", scope: "Retention automation and email/SMS lifecycle for a repeat-purchase D2C brand.", metric: "42% repeat purchase rate", note: "Retention automation + email flows", stats: [{ v: "42%", l: "Repeat purchase rate" }, { v: "90 days", l: "Lifecycle rebuild" }, { v: "Retention", l: "Email + SMS automation" }] },
+  { img: "/jagruti-logo-clean.png", tag: "FINANCIAL SERVICES", industry: "FINANCIAL SERVICES", title: "Jagruti Cooperative Credit Society Ltd.", scope: "Modernising the digital presence of a trusted cooperative credit society with decades of community legacy.", metric: "Modernising a trusted legacy", note: "through one consistent digital presence.", servicesTags: "Brand Strategy, Website Direction, Social Media, Digital Organization, GMB Optimization, SEO", seoMetaDescription: "How Perspective Media Labs modernised Jagruti Credit Society's 1998 legacy with a premium website, social presence and Google optimisation.", stats: [{ v: "1998", l: "Society established with community-first values" }, { v: "1 NEW WEBSITE", l: "Legacy brought into a modern digital format" }, { v: "3 DIGITAL CHANNELS", l: "Website, social and Google presence" }] },
 ];
 
 const siteUrl = "https://perspective-ai-spark.lovable.app";
@@ -147,6 +176,13 @@ const healingWavesScreenshots = [
   { src: "/healing-waves-popup-04.png", alt: "Healing Waves Clinic about section screenshot" },
 ];
 
+const jagrutiScreenshots = [
+  { src: "/jagruti-logo-clean.png", alt: "Jagruti Cooperative Credit Society logo" },
+  { src: "/homepage screenshot.png", alt: "Jagruti Cooperative Credit Society website homepage" },
+  { src: "/product screenshot.png", alt: "Jagruti Cooperative Credit Society products page" },
+  { src: "/core values.png", alt: "Jagruti Cooperative Credit Society core values page" },
+];
+
 const compare = [
   {
     key: "cost",
@@ -186,7 +222,7 @@ const compare = [
 ];
 
 const testimonials = [
-  { name: "Ananya Rao", role: "Founder, Loveska", initials: "AR", quote: "It felt less like hiring an agency and more like getting a CMO on speed dial. The reporting alone saved us 6 hours a week." },
+  { name: "Shubham Manmode", role: "Director, Nivesah Weddings", initials: "SM", quote: "Perfect work. On-time delivery and very creative development. Highly satisfied with the overall work." },
   { name: "Rohit Menon", role: "CEO, Metryx", initials: "RM", quote: "They understood our SaaS funnel in one call. Two months in, our CAC is half of what it was - with better leads." },
   { name: "Sneha Kulkarni", role: "Marketing Head, Cofact", initials: "SK", quote: "Fresh, bold, and refreshingly honest. They kill bad ideas fast so the good ones get real budget." },
   { name: "Vikram Shah", role: "Co-founder, Payloop", initials: "VS", quote: "The AI automations they set up quietly run our lead ops. It's the most leverage we've ever gotten from a marketing partner." },
@@ -202,6 +238,63 @@ const approach = [
   { word: "Perspective", desc: "We start where every good strategy starts - understanding your business, your customer, and your market from the inside out." },
   { word: "Media", desc: "Then we build the channels, creative, and campaigns that actually move the needle - not vanity metrics." },
   { word: "Labs", desc: "We use smart tools and automation to measure, iterate, and improve everything quietly in the background. Nothing runs blind. Everything runs better." },
+];
+
+const legalDocuments = [
+  {
+    title: "Privacy Policy",
+    updated: "Last updated: 2026",
+    intro: "Perspective Media Labs values your privacy. This policy explains how we collect, use, and protect the information shared with us through this website, forms, calls, WhatsApp, email, and related business communication.",
+    sections: [
+      {
+        heading: "Information we collect",
+        text: "We may collect your name, company name, phone number, email address, website, business requirements, and any message or project details you choose to share with us.",
+      },
+      {
+        heading: "How we use your information",
+        text: "We use this information to respond to enquiries, schedule audits or consultations, prepare proposals, deliver marketing services, improve our communication, and maintain client records.",
+      },
+      {
+        heading: "Data sharing",
+        text: "We do not sell your personal information. We may share necessary details with trusted service providers only when required to operate our business, deliver services, or comply with applicable law.",
+      },
+      {
+        heading: "Cookies and analytics",
+        text: "Our website may use basic analytics, pixels, or similar tools to understand website performance, campaign effectiveness, and visitor behaviour.",
+      },
+      {
+        heading: "Contact",
+        text: "For privacy-related requests, contact us at connect@perspectivemedialabs.com.",
+      },
+    ],
+  },
+  {
+    title: "Terms & Conditions",
+    updated: "Last updated: 2026",
+    intro: "By accessing this website or submitting an enquiry, you agree to the following terms for using Perspective Media Labs' website and communication channels.",
+    sections: [
+      {
+        heading: "Website use",
+        text: "The content on this website is provided for general information about our services, case studies, and approach. It should not be treated as a guaranteed business, marketing, financial, or legal outcome.",
+      },
+      {
+        heading: "Service engagement",
+        text: "Any project, retainer, campaign, or consulting engagement will be governed by the specific proposal, quotation, invoice, scope of work, or agreement shared with the client.",
+      },
+      {
+        heading: "Intellectual property",
+        text: "Website content, visuals, brand assets, text, and case study material belong to Perspective Media Labs or their respective owners and may not be copied or reused without permission.",
+      },
+      {
+        heading: "Third-party platforms",
+        text: "We may recommend or use third-party tools, advertising platforms, hosting providers, automation systems, and analytics services. Their own terms and policies will also apply.",
+      },
+      {
+        heading: "Contact",
+        text: "For questions about these terms, contact us at connect@perspectivemedialabs.com.",
+      },
+    ],
+  },
 ];
 
 /* ---------- Page ---------- */
@@ -242,10 +335,9 @@ function Nav() {
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/80 border-b border-border">
       <div className="container-page flex items-center justify-between h-18 py-3">
         <a href="#top" className="flex items-center gap-3 min-w-0">
-          <img src="/pml-logo-mark.svg" alt="Perspective Media Labs" className="h-12 w-auto shrink-0" />
-          <div className="min-w-0 leading-tight hidden sm:block">
-            <div className="text-[18px] font-semibold text-navy truncate">Perspective Media Labs</div>
-          </div>
+          <span className="relative block h-12 w-[220px] max-w-[62vw] shrink-0 overflow-hidden" aria-label="Perspective Media Labs">
+            <img src="/logo main.png" alt="" className="absolute left-1/2 top-1/2 w-[220px] max-w-none -translate-x-1/2 -translate-y-1/2" />
+          </span>
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
@@ -388,27 +480,32 @@ function Services() {
                 </DialogTrigger>
                 <DialogContent className="w-[calc(100%-2rem)] max-w-md max-h-[85dvh] overflow-y-auto rounded-2xl sm:rounded-2xl border-primary/20 bg-card p-6 sm:p-8">
                   <img
-                    src="/pml-logo-mark.svg"
+                    src="/logo main.png"
                     alt=""
                     aria-hidden="true"
                     draggable={false}
-                    className="pointer-events-none absolute left-1/2 top-1/2 h-auto w-3/5 max-w-64 -translate-x-1/2 -translate-y-1/2 select-none opacity-[0.045]"
+                    className="pointer-events-none absolute left-1/2 top-1/2 h-auto w-4/5 max-w-sm -translate-x-1/2 -translate-y-1/2 select-none object-contain opacity-[0.045]"
                   />
                   <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-deep grid place-items-center text-primary-foreground">
                     <s.icon className="w-6 h-6" aria-hidden="true" />
                   </div>
                   <DialogHeader className="relative text-left">
                     <DialogTitle className="font-serif text-2xl leading-tight text-navy">{s.title}</DialogTitle>
-                    <DialogDescription className="pt-2 text-navy-soft leading-relaxed">{s.desc}</DialogDescription>
+                    <DialogDescription className="pt-2 text-navy-soft leading-relaxed">{serviceDetails[s.title].intro}</DialogDescription>
                   </DialogHeader>
                   <ul className="relative space-y-3 border-t border-border pt-4">
-                    {serviceDetails[s.title].map((detail) => (
+                    {serviceDetails[s.title].points.map((detail) => (
                       <li key={detail} className="flex gap-3 text-sm leading-relaxed text-navy-soft">
                         <Check className="mt-1 h-4 w-4 shrink-0 text-primary-deep" aria-hidden="true" />
                         <span>{detail}</span>
                       </li>
                     ))}
                   </ul>
+                  <DialogClose asChild>
+                    <a href="#contact" className="btn-primary relative mt-1 w-fit text-sm">
+                      {serviceDetails[s.title].cta} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </DialogClose>
                 </DialogContent>
               </Dialog>
             </div>
@@ -535,7 +632,7 @@ function Portfolio() {
   const [mobileCard, setMobileCard] = useState(0);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const active = openIdx !== null ? cases[openIdx] : null;
-  const activeScreenshots = active?.title === "Ekvira Export House Pvt. Ltd." ? ekviraScreenshots : active?.title === "Impact Infraheights Pvt Ltd" ? impactScreenshots : active?.title === "Skill Spark Consulting" ? skillSparkScreenshots : active?.title === "Rushivan Aagro" ? rushivanScreenshots : active?.title === "Healing Waves Clinic" ? healingWavesScreenshots : null;
+  const activeScreenshots = active?.title === "Ekvira Export House Pvt. Ltd." ? ekviraScreenshots : active?.title === "Impact Infraheights Pvt Ltd" ? impactScreenshots : active?.title === "Skill Spark Consulting" ? skillSparkScreenshots : active?.title === "Rushivan Aagro" ? rushivanScreenshots : active?.title === "Healing Waves Clinic" ? healingWavesScreenshots : active?.title === "Jagruti Cooperative Credit Society Ltd." ? jagrutiScreenshots : null;
 
   useEffect(() => {
     if (active) {
@@ -577,19 +674,12 @@ function Portfolio() {
               {i < 3 ? (
                 <div aria-hidden="true" className="w-full" style={{ aspectRatio: "1896 / 882" }} />
               ) : (
-                <img src={c.img} alt={c.title} loading="lazy" className="block w-full object-cover aspect-[1896/882] transition-transform duration-500 group-hover:scale-105" />
+                <img src={c.img} alt={c.title} loading="lazy" className={`block w-full aspect-[1896/882] transition-transform duration-500 group-hover:scale-105 ${c.title === "Jagruti Cooperative Credit Society Ltd." ? "bg-white object-contain p-6" : "object-cover"}`} />
               )}
-              <div className="px-6 py-4 min-h-[168px] md:min-h-[176px]">
+              <div className="px-6 py-4 min-h-[168px] md:h-[176px] md:overflow-hidden">
                 <div className="text-xs font-semibold uppercase tracking-widest text-primary-deep">{c.tag}</div>
-                <h3 className="mt-2 font-serif text-xl font-semibold text-navy">{c.title}</h3>
-                {i < 5 ? (
-                  <p className="mt-3 text-base leading-relaxed text-navy-soft">{i === 0 ? `${c.metric} ${c.note}` : c.scope}</p>
-                ) : (
-                  <>
-                    <div className="mt-3 font-serif text-2xl font-semibold text-navy">{c.metric}</div>
-                    <p className="mt-1 text-sm text-navy-soft">{c.note}</p>
-                  </>
-                )}
+                <h3 className={`mt-2 font-serif font-semibold text-navy ${c.title === "Jagruti Cooperative Credit Society Ltd." ? "text-lg leading-snug" : "text-xl"}`}>{c.title}</h3>
+                <p className={`${c.title === "Jagruti Cooperative Credit Society Ltd." ? "mt-2 text-sm leading-normal" : "mt-3 text-base leading-relaxed"} text-navy-soft`}>{i === 0 ? `${c.metric} ${c.note}` : c.scope}</p>
               </div>
             </button>
           ))}
@@ -641,7 +731,7 @@ function Portfolio() {
                 {activeScreenshots ? activeScreenshots.map((screenshot, index) => (
                   <div
                     key={screenshot.src || `blank-${index}`}
-      className={`shrink-0 w-72 md:w-80 overflow-hidden rounded-2xl border border-border snap-start ${active?.title === "Ekvira Export House Pvt. Ltd." && index === 0 ? "bg-[#ffb719]" : active?.title === "Healing Waves Clinic" && index === 0 ? "bg-[#363b3f]" : (active?.title === "Impact Infraheights Pvt Ltd" || active?.title === "Skill Spark Consulting" || active?.title === "Rushivan Aagro") && index === 0 ? "bg-white" : "bg-surface"}`}
+      className={`shrink-0 w-72 md:w-80 overflow-hidden rounded-2xl border border-border snap-start ${active?.title === "Ekvira Export House Pvt. Ltd." && index === 0 ? "bg-[#ffb719]" : active?.title === "Healing Waves Clinic" && index === 0 ? "bg-[#363b3f]" : (active?.title === "Impact Infraheights Pvt Ltd" || active?.title === "Skill Spark Consulting" || active?.title === "Rushivan Aagro" || active?.title === "Jagruti Cooperative Credit Society Ltd.") && index === 0 ? "bg-white" : "bg-surface"}`}
                     style={{ aspectRatio: "16 / 9" }}
                   >
                     {screenshot.src && (
@@ -684,8 +774,10 @@ function Portfolio() {
               <div className={active.title === "Impact Infraheights Pvt Ltd" ? "hidden" : ""}>
                 <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">The challenge</div>
                 <p className="mt-2 text-navy-soft leading-relaxed text-justify">
-                  {active.title === "Skill Spark Consulting"
-                    ? "Skill Spark Consulting was entering one of Pune's most cluttered markets - career consulting and talent placement - with no brand identity, no digital infrastructure, and no business collateral. The founder brought deep government and industrial networks across the PCMC corridor but had nothing to present to a corporate HR head or job seeker. The business needed credible placement firm branding, a professional digital presence in the Pune recruitment market, and the full suite of tools to operate from day one."
+                  {active.title === "Jagruti Cooperative Credit Society Ltd."
+                    ? "Established in 1998, Jagruti Cooperative Credit Society carries a long-standing legacy built on trust, transparency and member focus. The opportunity was to translate that legacy into a contemporary digital presence without losing the institution's established character. The brand needed a more premium, professional and accessible presentation across its website, social media and Google presence - bringing a traditional cooperative credit society into today's digital environment."
+                    : active.title === "Skill Spark Consulting"
+                      ? "Skill Spark Consulting was entering one of Pune's most cluttered markets - career consulting and talent placement - with no brand identity, no digital infrastructure, and no business collateral. The founder brought deep government and industrial networks across the PCMC corridor but had nothing to present to a corporate HR head or job seeker. The business needed credible placement firm branding, a professional digital presence in the Pune recruitment market, and the full suite of tools to operate from day one."
                     : active.title === "Rushivan Aagro"
                       ? "Rushivan Aagro, a farm stay and agri-tourism property near Pune, had strong on-ground appeal but almost no digital footprint to match it. There was no way for guests to browse rooms or pay online, no consistent visiting card or brochure for trade shows and expos, and social media accounts sat dormant. For a growing agri-tourism brand competing for Pune-Mumbai weekend travelers, that gap meant word-of-mouth demand wasn't converting into an organized, always-on booking channel."
                     : active.title === "Healing Waves Clinic"
@@ -706,7 +798,11 @@ function Portfolio() {
               <div className={active.title === "Impact Infraheights Pvt Ltd" ? "hidden" : ""}>
                 <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">What we did</div>
                 <div className="mt-4 space-y-6">
-                  {active.title === "Skill Spark Consulting" ? (
+                  {active.title === "Jagruti Cooperative Credit Society Ltd." ? (
+                    <p className="text-navy-soft leading-relaxed text-justify">
+                      Perspective Media Labs gave Jagruti's established legacy a modern digital expression. We built a new website with a premium, professional look and feel, while setting up and optimising its social media handles, firm pages and Google Business Profile. The work brought its 1998 legacy, community focus and modern banking practices together under one consistent digital presence. As its marketing concierge, we handled the digital foundation end to end.
+                    </p>
+                  ) : active.title === "Skill Spark Consulting" ? (
                     <>
                       <p className="text-navy-soft leading-relaxed text-justify">
                         Perspective Media Labs built the entire brand from zero. We evaluated and approved the brand name, directed the logo through multiple design rounds to a trademarked final mark under Class 35, and locked a Navy and Gold premium colour palette positioned to compete with established consulting firms. We created all brand collateral - letterhead, visiting cards, envelope, and candidate intake forms for both general and IT talent profiles. Digital infrastructure covered GMB setup, LinkedIn company page, Facebook and Instagram pages with SEO-optimised bios, founder LinkedIn profile, Company profile PPT, and office branding.
@@ -730,6 +826,18 @@ function Portfolio() {
                   )}
                 </div>
               </div>
+              {active.servicesTags && (
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Services</div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {active.servicesTags.split(", ").map((service) => (
+                      <span key={service} className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary-deep">
+                        {service}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="p-8 md:p-10 flex flex-wrap items-center justify-between gap-4">
@@ -831,6 +939,9 @@ function Founder() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#contact" className="btn-primary text-sm">Talk to Tejas <ArrowRight className="w-4 h-4" /></a>
             <a href="https://wa.me/918668411092" target="_blank" rel="noreferrer" className="btn-ghost text-sm">WhatsApp <MessageCircle className="w-4 h-4" /></a>
+            <a href="https://www.linkedin.com/in/tejasrokhade/" target="_blank" rel="noopener noreferrer" className="btn-ghost text-sm" aria-label="View Tejas Rokhade on LinkedIn">
+              LinkedIn <Linkedin className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>
@@ -945,7 +1056,9 @@ function Footer() {
       <div className="hidden">
         <div>
           <div className="flex items-center gap-3">
-            <img src="/pml-logo-mark.svg" alt="Perspective Media Labs" className="h-11 w-auto" />
+            <span className="relative block h-11 w-52 overflow-hidden" aria-label="Perspective Media Labs">
+              <img src="/logo main.png" alt="" className="absolute left-1/2 top-1/2 w-52 max-w-none -translate-x-1/2 -translate-y-1/2" />
+            </span>
             <div>
               <div className="font-semibold text-navy">Perspective Media Labs</div>
             </div>
@@ -969,15 +1082,53 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="container-page mt-0 pt-3 border-t border-border flex flex-wrap justify-center text-center gap-3 text-xs text-muted-foreground">
+      <div className="container-page mt-0 pt-3 border-t border-border flex flex-col items-center justify-center gap-2 text-center text-xs text-muted-foreground sm:flex-row sm:flex-wrap sm:gap-3">
         <span>
           © 2026 All Rights Reserved By Perspective Media Labs and Designed By{" "}
           <a href="https://webakoof.com" target="_blank" rel="noreferrer" className="font-semibold text-primary-deep underline underline-offset-2 hover:text-navy transition-colors">
             Webakoof
           </a>
         </span>
+        <span className="hidden text-border sm:inline">|</span>
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+          {legalDocuments.map((legalDocument) => (
+            <LegalDialog key={legalDocument.title} legalDocument={legalDocument} />
+          ))}
+        </div>
       </div>
     </footer>
+  );
+}
+
+function LegalDialog({ legalDocument }: { legalDocument: (typeof legalDocuments)[number] }) {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <button
+          type="button"
+          className="font-semibold text-primary-deep underline underline-offset-2 transition-colors hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        >
+          {legalDocument.title}
+        </button>
+      </DialogTrigger>
+      <DialogContent className="w-[calc(100%-2rem)] max-w-2xl max-h-[85dvh] overflow-y-auto rounded-2xl border-primary/20 bg-card p-6 sm:p-8">
+        <DialogHeader className="text-left">
+          <DialogTitle className="font-serif text-2xl leading-tight text-navy">{legalDocument.title}</DialogTitle>
+          <DialogDescription className="pt-2 text-sm leading-relaxed text-navy-soft">
+            {legalDocument.updated}
+          </DialogDescription>
+        </DialogHeader>
+        <div className="space-y-5 text-left text-sm leading-relaxed text-navy-soft">
+          <p>{legalDocument.intro}</p>
+          {legalDocument.sections.map((section) => (
+            <section key={section.heading}>
+              <h3 className="font-sans text-sm font-semibold text-navy">{section.heading}</h3>
+              <p className="mt-1">{section.text}</p>
+            </section>
+          ))}
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
