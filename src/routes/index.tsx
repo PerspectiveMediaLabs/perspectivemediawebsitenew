@@ -32,8 +32,34 @@ import founderImg from "@/assets/founder-tejas-clear.jpeg";
 import heroBg from "@/assets/hero-bg.jpg";
 import businessJsonLd from "@/data/pml-schema-final.json";
 
+const siteUrl = "https://www.getperspective.in";
+const pageUrl = `${siteUrl}/`;
+const pageTitle = "Perspective Media Labs | Marketing Partner for MSMEs";
+const pageDescription = "Strategy-led marketing for Indian MSMEs and startups, with senior attention across brand, content, digital, performance, and automation.";
+const socialImageUrl = `${siteUrl}/case-metryx-impact.png`;
+
 export const Route = createFileRoute("/")({
   head: () => ({
+    meta: [
+      { title: pageTitle },
+      { name: "description", content: pageDescription },
+      { name: "author", content: "Perspective Media Labs" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:title", content: pageTitle },
+      { property: "og:description", content: pageDescription },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: pageUrl },
+      { property: "og:site_name", content: "Perspective Media Labs" },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:image", content: socialImageUrl },
+      { property: "og:image:alt", content: "Perspective Media Labs client work showcase" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: pageTitle },
+      { name: "twitter:description", content: pageDescription },
+      { name: "twitter:image", content: socialImageUrl },
+      { name: "twitter:image:alt", content: "Perspective Media Labs client work showcase" },
+    ],
+    links: [{ rel: "canonical", href: pageUrl }],
     scripts: [
       {
         type: "application/ld+json",
@@ -115,7 +141,6 @@ const cases = [
   { img: "/homepage screenshot.png", tag: "FINANCIAL SERVICES", industry: "FINANCIAL SERVICES", title: "Jagruti Cooperative Credit Society Ltd.", scope: "Modernising the digital presence of a trusted cooperative credit society with decades of community legacy.", metric: "Modernising a trusted legacy", note: "through one consistent digital presence.", servicesTags: "Brand Strategy, Website Direction, Social Media, Digital Organization, GMB Optimization, SEO", seoMetaDescription: "How Perspective Media Labs modernised Jagruti Credit Society's 1998 legacy with a premium website, social presence and Google optimisation.", stats: [{ v: "1998", l: "Society established with community-first values" }, { v: "1 New website", l: "Legacy brought into a modern digital format" }, { v: "3 Digital channels", l: "Website, social and Google presence" }] },
 ];
 
-const siteUrl = "https://www.perspectivemedialabs.com";
 const toAbsoluteUrl = (path: string) => (path.startsWith("http") ? path : `${siteUrl}${path}`);
 
 const portfolioJsonLd = {
