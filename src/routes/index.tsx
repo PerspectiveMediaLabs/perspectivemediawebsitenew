@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
 import { Dialog, DialogTrigger, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import {
   ArrowRight,
@@ -34,6 +34,7 @@ import businessJsonLd from "@/data/pml-schema-final.json";
 
 const siteUrl = "https://www.getperspective.in";
 const pageUrl = `${siteUrl}/`;
+const web3FormsAccessKey = "fde2369f-69ff-4cab-b539-c957a8e4d189";
 const pageTitle = "Perspective Media Labs | Marketing Partner for MSMEs";
 const pageDescription = "Strategy-led marketing for Indian MSMEs and startups, with senior attention across brand, content, digital, performance, and automation.";
 const socialImageUrl = `${siteUrl}/case-metryx-impact.png`;
@@ -134,11 +135,11 @@ const serviceDetails: Record<string, { intro: string; points: string[]; cta: str
 
 const cases = [
   { img: "/case-ekvira-export-fit.png", tag: "Import Export Trade", industry: "Import Export Trade", title: "Ekvira Export House Pvt. Ltd.", scope: "Full brand, digital, and print communication built from zero for a new Indian merchant export trading firm.", metric: "Full brand, digital, and print communication built from zero", note: "for a new Indian merchant export trading firm.", servicesTags: "Brand Strategy, Website Direction, Content Strategy, Creative Direction, WhatsApp Automation, Performance Marketing", seoMetaDescription: "How Perspective Media Labs built brand and marketing infrastructure for a new Pune import export firm - generating a $12,000 first order.", stats: [{ v: "$15,000", l: "First B2B order value from a single Meta lead" }, { v: "₹224", l: "Average cost per lead — international B2B campaigns" }, { v: "$60,000+", l: "Estimated pipeline value built from qualified leads" }] },
-  { img: "/case-metryx-impact.png", tag: "Civil Infrastructure", industry: "Civil Infrastructure", title: "Impact Infraheights Pvt Ltd", scope: "Digital revival for a Pune civil engineering firm — brand, website, brochure, social media, and GMB.", metric: "60% cheaper qualified leads", note: "LinkedIn ABM + intent-based nurture", servicesTags: "Social Media, Content Strategy, GMB Optimization, Creative Direction, Corporate Communication, LinkedIn Strategy, Website Direction, Brand Strategy", seoMetaDescription: "How Perspective Media Labs rebuilt digital presence for a Pune civil infrastructure firm: 59K+ LinkedIn impressions, 85+ GMB reviews, 5 platforms managed.", stats: [{ v: "59,731", l: "LinkedIn impressions generated in 12 months — organic, zero ad spend" }, { v: "+228.6%", l: "GMB growth year on year — real business intent, not vanity numbers" }, { v: "45K+", l: "Combined Meta organic reach — Facebook + Instagram in 10 months" }] },
-  { img: "/skill-spark-card.png", tag: "HR CONSULTANCY SERVICES", industry: "HR CONSULTANCY SERVICES", title: "Skill Spark Consulting", scope: "Brand launch for a PCMC placement firm - identity, trademark, website, and collateral built from zero.", metric: "Complete brand launch", note: "for a new PCMC based placement firm; identity, trademark, digital presence, and collateral built from zero.", servicesTags: "Brand Strategy, Creative Direction, Social Media, GMB Optimization, LinkedIn Strategy, Corporate Communication, SEO, Content Strategy", seoMetaDescription: "How PML launched a Pune placement firm's full brand: trademark, GMB, social, and a website now cited organically by ChatGPT - zero ad spend.", stats: [{ v: "418 Users", l: "Organic website traffic - zero paid advertising" }, { v: "Traffic Source: ChatGPT", l: "AI platforms driving 153 sessions unprompted" }, { v: "160 Sessions", l: "Google organic reach within months of going live" }] },
+  { img: "/case-metryx-impact.png", tag: "Civil Infrastructure", industry: "Civil Infrastructure", title: "Impact Infraheights Pvt Ltd", scope: "Digital revival for a Pune civil engineering firm — brand, website, brochure, social media, and GMB.", metric: "60% cheaper qualified leads", note: "LinkedIn ABM + intent-based nurture", servicesTags: "Social Media, Content Strategy, GMB Optimization, LinkedIn Strategy, Website Development", seoMetaDescription: "How Perspective Media Labs rebuilt digital presence for a Pune civil infrastructure firm: 59K+ LinkedIn impressions, 85+ GMB reviews, 5 platforms managed.", stats: [{ v: "59,731", l: "LinkedIn impressions generated in 12 months — organic, zero ad spend" }, { v: "+228.6%", l: "GMB growth year on year — real business intent, not vanity numbers" }, { v: "45K+", l: "Combined Meta organic reach — Facebook + Instagram in 10 months" }] },
+  { img: "/skill-spark-card.png", tag: "HR CONSULTANCY SERVICES", industry: "HR CONSULTANCY SERVICES", title: "Skill Spark Consulting", scope: "Brand launch for a PCMC placement firm - identity, trademark, website, and collateral built from zero.", metric: "Complete brand launch", note: "for a new PCMC based placement firm; identity, trademark, digital presence, and collateral built from zero.", servicesTags: "Brand Strategy, Creative Direction, Social Media, GMB Optimization, LinkedIn Strategy, SEO, Website Development", seoMetaDescription: "How PML launched a Pune placement firm's full brand: trademark, GMB, social, and a website now cited organically by ChatGPT - zero ad spend.", stats: [{ v: "418 Users", l: "Organic website traffic - zero paid advertising" }, { v: "Traffic Source: ChatGPT", l: "AI platforms driving 153 sessions unprompted" }, { v: "160 Sessions", l: "Google organic reach within months of going live" }] },
   { img: "/rushivan-agro-card.png", tag: "AGRI-TOURISM", industry: "Consumer Fintech", title: "Rushivan Aagro", scope: "End-to-end digital build and marketing overhaul for a Pune-area farm stay and agri-tourism brand.", metric: "End-to-end digital build", note: "and marketing overhaul for a Pune-area farm stay and agri-tourism brand.", servicesTags: "Website Direction, Expo Branding, Creative Direction, Social Media, Performance Marketing, Digital Organization", seoMetaDescription: "Perspective Media Labs built a Razorpay-powered booking website, expo branding, and revived social media for Pune agri-tourism brand Rushivan Agro.", stats: [{ v: "5×", l: "App installs QoQ" }, { v: "60 days", l: "Optimization sprint" }, { v: "Full funnel", l: "Paid + ASO + lifecycle" }] },
-  { img: "/healing-waves-card.png", tag: "HEALTHCARE", industry: "Regenerative Healthcare", title: "Healing Waves Clinic", scope: "Full-stack marketing concierge for a 4-branch Pune orthopaedic clinic - from zero systems to measurable growth.", metric: "A Big Wave In Healing Technology", note: "Clinic website + patient communication", servicesTags: "Digital Organisation, WhatsApp Automation, Performance Marketing, LinkedIn Strategy, Content Strategy, SEO, Website Direction, Corporate Communication", seoMetaDescription: "How Perspective Media Labs built marketing infrastructure for a 4-branch Pune orthopaedic clinic: systems, agency oversight, and 1,072% LinkedIn growth in 28 days.", stats: [{ v: "1,072%", l: "LinkedIn impression growth in 28 days" }, { v: "0 -> 85%", l: "Revenue tracking accuracy built from scratch" }, { v: "7 months", l: "End-to-end concierge across 4 clinics and 2 agencies" }] },
-  { img: "/homepage screenshot.png", tag: "FINANCIAL SERVICES", industry: "FINANCIAL SERVICES", title: "Jagruti Cooperative Credit Society Ltd.", scope: "Modernising the digital presence of a trusted cooperative credit society with decades of community legacy.", metric: "Modernising a trusted legacy", note: "through one consistent digital presence.", servicesTags: "Brand Strategy, Website Direction, Social Media, Digital Organization, GMB Optimization, SEO", seoMetaDescription: "How Perspective Media Labs modernised Jagruti Credit Society's 1998 legacy with a premium website, social presence and Google optimisation.", stats: [{ v: "1998", l: "Society established with community-first values" }, { v: "1 New website", l: "Legacy brought into a modern digital format" }, { v: "3 Digital channels", l: "Website, social and Google presence" }] },
+  { img: "/healing-waves-card.png", tag: "HEALTHCARE", industry: "Regenerative Healthcare", title: "Healing Waves Clinic", scope: "Full-stack marketing concierge for a 4-branch Pune orthopaedic clinic - from zero systems to measurable growth.", metric: "A Big Wave In Healing Technology", note: "Clinic website + patient communication", servicesTags: "Digital Organisation, WhatsApp Automation, LinkedIn Strategy, Content Strategy, Website Direction", seoMetaDescription: "How Perspective Media Labs built marketing infrastructure for a 4-branch Pune orthopaedic clinic: systems, agency oversight, and 1,072% LinkedIn growth in 28 days.", stats: [{ v: "1,072%", l: "LinkedIn impression growth in 28 days" }, { v: "0 -> 85%", l: "Revenue tracking accuracy built from scratch" }, { v: "7 months", l: "End-to-end concierge across 4 clinics and 2 agencies" }] },
+  { img: "/homepage screenshot.png", tag: "FINANCIAL SERVICES", industry: "FINANCIAL SERVICES", title: "Jagruti Cooperative Credit Society Ltd.", scope: "Modernising the digital presence of a trusted cooperative credit society with decades of community legacy.", metric: "Modernising a trusted legacy", note: "through one consistent digital presence.", servicesTags: "Brand Strategy, Website Development, Social Media, Digital Organization, GMB Optimization, SEO", seoMetaDescription: "How Perspective Media Labs modernised Jagruti Credit Society's 1998 legacy with a premium website, social presence and Google optimisation.", stats: [{ v: "1998", l: "Society established with community-first values" }, { v: "1 New website", l: "Legacy brought into a modern digital format" }, { v: "3 Digital channels", l: "Website, social and Google presence" }] },
 ];
 
 const toAbsoluteUrl = (path: string) => (path.startsWith("http") ? path : `${siteUrl}${path}`);
@@ -247,9 +248,9 @@ const compare = [
 ];
 
 const testimonials = [
-  { name: "Shubham Manmode", role: "Director, Nivesah Weddings", initials: "SM", quote: "Perfect work. On-time delivery and very creative development. Highly satisfied with the overall work." },
-  { name: "Rohit Menon", role: "CEO, Metryx", initials: "RM", quote: "They understood our SaaS funnel in one call. Two months in, our CAC is half of what it was - with better leads." },
-  { name: "Sneha Kulkarni", role: "Marketing Head, Cofact", initials: "SK", quote: "Fresh, bold, and refreshingly honest. They kill bad ideas fast so the good ones get real budget." },
+  { name: "Hemant Bhamare", role: "Director, Ekvira Export House Pvt Ltd", initials: "HB", quote: "Perfect work. On-time delivery and very creative development. Highly satisfied with the overall work." },
+  { name: "Rushikesh Yadav", role: "Director, Impact Infraheights Pvt Ltd", initials: "RY", quote: "They understood our SaaS funnel in one call. Two months in, our CAC is half of what it was - with better leads." },
+  { name: "Jaydeep Gole", role: "Director, Jagruti Co-op Credit Society", initials: "JG", quote: "Fresh, bold, and refreshingly honest. They kill bad ideas fast so the good ones get real budget." },
   { name: "Vikram Shah", role: "Co-founder, Payloop", initials: "VS", quote: "The AI automations they set up quietly run our lead ops. It's the most leverage we've ever gotten from a marketing partner." },
 ];
 
@@ -325,7 +326,7 @@ const legalDocuments = [
 const faqs = [
   {
     question: "What is a marketing concierge?",
-    answer: "Your marketing department without building one. One senior partner handles strategy, social media, creative projects, and digital organization. One annual fee. One point of contact. You run your business. We run your marketing.",
+    answer: "Your marketing department without building one. Think of it as having an outsourced CMO who already knows your business — one senior partner handling strategy, social media, creative projects, and digital organisation. One annual fee. One point of contact. You run your business. We run your marketing.",
   },
   {
     question: "How is this different from hiring an agency?",
@@ -349,7 +350,7 @@ const faqs = [
   },
   {
     question: "Is this only for large businesses?",
-    answer: "No. This is specifically designed for growing MSMEs and startups that need serious marketing but cannot justify a Rs. 50,000-70,000 monthly agency retainer or a full-time marketing hire at Rs. 4-6 lakh per year. Our model gives you both at a fraction of either.",
+    answer: "No. This is specifically designed for growing MSMEs and startups that need serious marketing leadership but cannot justify a Rs. 50,000–70,000 monthly agency retainer or a full-time marketing hire at Rs. 4–6 lakh per year. The outsourced CMO model gives you both; senior strategic ownership and hands-on execution — at a fraction of either cost.",
   },
   {
     question: "What AI and automation do you set up?",
@@ -439,7 +440,7 @@ function Hero() {
             <span className="block italic text-primary-deep">like it's yours.</span>
           </h1>
           <p className="mt-6 max-w-xl text-left text-base leading-relaxed text-navy-soft sm:text-lg">
-            One senior concierge. Smarter tools doing the heavy lifting. A partner that thinks like a founder, ships like an operator, and reports like a CFO - built for Indian MSMEs and startups.
+            Your outsourced CMO and marketing partner for Indian MSMEs — strategy, execution, and accountability under one senior relationship.
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
             <a href="#contact" className="btn-primary">Start with a free audit <ArrowRight className="w-4 h-4" /></a>
@@ -457,23 +458,19 @@ function Hero() {
         <div className="md:col-span-5 relative animate-fade-up">
           <div className="relative rounded-3xl overflow-hidden border border-border bg-card shadow-[var(--shadow-elegant)]">
             <div className="p-6 bg-gradient-to-br from-primary-deep to-navy text-primary-foreground">
-              <div className="flex items-center justify-between text-xs uppercase tracking-widest opacity-80">
-                <span>Concierge dashboard</span><span>This week</span>
+              <div className="text-2xl font-semibold leading-tight sm:text-3xl">
+                Is your marketing actually working or just existing?
               </div>
-              <div className="mt-4 font-serif text-2xl sm:text-3xl">₹4.8L saved · 2.1× ROAS</div>
-              <div className="mt-2 text-sm opacity-90">Strategy, brand, and execution - owned end to end.</div>
             </div>
-            <div className="p-6 space-y-4">
-              {[
-                { l: "Qualified leads", v: "+312", tone: "text-success" },
-                { l: "Cost per lead", v: "-46%", tone: "text-primary-deep" },
-                { l: "Content shipped", v: "18 pieces", tone: "text-navy" },
-              ].map((r) => (
-                <div key={r.l} className="flex items-center justify-between py-2 border-b border-border last:border-0">
-                  <span className="text-sm text-muted-foreground">{r.l}</span>
-                  <span className={`font-semibold ${r.tone}`}>{r.v}</span>
-                </div>
-              ))}
+            <div className="p-6 space-y-5">
+              <p className="border-l-4 border-primary pl-4 text-xl font-semibold leading-snug text-primary-deep sm:text-2xl">
+                68% of Indian MSMEs have never defined their positioning.
+              </p>
+              <div className="border-t border-border pt-5 text-navy">
+                <p className="text-base leading-relaxed sm:text-lg">Most businesses don't have a marketing problem.</p>
+                <p className="mt-1 text-base font-semibold leading-relaxed sm:text-lg">They have a clarity problem.</p>
+              </div>
+              <p className="border-t border-border pt-5 text-xl font-semibold text-primary-deep">Let's fix yours.</p>
             </div>
           </div>
         </div>
@@ -1075,14 +1072,14 @@ function FaqSection() {
 /* ---------- Contact ---------- */
 
 function ContactSection() {
-  const [sent, setSent] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     let frame: number;
     const resetForm = () => {
       formRef.current?.reset();
-      setSent(false);
+      setSubmitStatus("idle");
       frame = requestAnimationFrame(() => formRef.current?.reset());
     };
     resetForm();
@@ -1092,6 +1089,34 @@ function ContactSection() {
       window.removeEventListener("pageshow", resetForm);
     };
   }, []);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitStatus("sending");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    formData.append("access_key", web3FormsAccessKey);
+    formData.append("subject", "New website enquiry - Perspective Media Labs");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Form submission failed");
+      }
+
+      form.reset();
+      setSubmitStatus("success");
+    } catch {
+      setSubmitStatus("error");
+    }
+  };
+
   return (
     <section id="contact" className="py-24 bg-navy text-primary-foreground relative overflow-hidden">
       <div aria-hidden className="absolute inset-0 opacity-40" style={{ background: "radial-gradient(700px 400px at 100% 0%, oklch(0.66 0.11 210 / 0.5), transparent 60%)" }} />
@@ -1118,14 +1143,33 @@ function ContactSection() {
         <form
           ref={formRef}
           autoComplete="off"
-          onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+          onSubmit={handleSubmit}
           className="md:col-span-7 self-start bg-white/[0.04] backdrop-blur border border-white/10 rounded-3xl p-5 pb-5 sm:p-8 sm:pb-6 space-y-5"
         >
+          <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
           <div className="grid md:grid-cols-2 gap-5">
             <Field label="Your name" name="name" placeholder="Enter your full name" />
-            <Field label="Work email" name="email" type="email" placeholder="Enter your work email" />
+            <Field
+              label="Work email"
+              name="email"
+              type="email"
+              placeholder="Enter your work email"
+              autoComplete="email"
+              required
+              title="Enter a valid email address, for example name@company.com"
+            />
             <Field label="Company" name="company" placeholder="Enter your company name" />
-            <Field label="Phone" name="phone" placeholder="Enter your phone number" />
+            <Field
+              label="Phone"
+              name="phone"
+              type="tel"
+              placeholder="Enter your phone number"
+              autoComplete="tel"
+              inputMode="tel"
+              pattern="(?:\\+?91[ -]?)?[6-9][0-9]{9}"
+              required
+              title="Enter a valid 10-digit Indian mobile number"
+            />
           </div>
           <div>
             <label className="text-xs font-semibold uppercase tracking-widest text-white/70">What do you need help with?</label>
@@ -1137,7 +1181,7 @@ function ContactSection() {
               className="mt-2 w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-primary-foreground placeholder:text-white/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
             />
           </div>
-          <label className="flex items-start gap-3 px-4 text-sm leading-relaxed text-white/80 cursor-pointer">
+          <label className="flex items-start gap-3 px-4 text-xs leading-relaxed text-white/80 cursor-pointer">
             <input
               type="checkbox"
               name="termsAccepted"
@@ -1146,16 +1190,47 @@ function ContactSection() {
             />
             <span>By submitting this form, I agree to the Terms and Conditions and consent to being contacted by Perspective Media Labs regarding my enquiry.</span>
           </label>
-          <button type="submit" className="btn-primary w-full sm:w-auto">
-            {sent ? "Thanks - we'll be in touch" : (<>Request my free audit <ArrowRight className="w-4 h-4" /></>)}
+          <button type="submit" disabled={submitStatus === "sending"} className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
+            {submitStatus === "sending"
+              ? "Sending..."
+              : submitStatus === "success"
+                ? "Thanks - we'll be in touch"
+                : (<>Request my free audit <ArrowRight className="w-4 h-4" /></>)}
           </button>
+          <p className={`text-sm ${submitStatus === "error" ? "text-red-300" : "text-white/80"}`} role="status" aria-live="polite">
+            {submitStatus === "success"
+              ? "Your enquiry has been sent successfully."
+              : submitStatus === "error"
+                ? "We couldn't send your enquiry. Please try again or email us directly."
+                : ""}
+          </p>
         </form>
       </div>
     </section>
   );
 }
 
-function Field({ label, name, type = "text", placeholder }: { label: string; name: string; type?: string; placeholder?: string }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  placeholder,
+  autoComplete = "off",
+  inputMode,
+  pattern,
+  required = false,
+  title,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  placeholder?: string;
+  autoComplete?: string;
+  inputMode?: "text" | "tel" | "email" | "numeric";
+  pattern?: string;
+  required?: boolean;
+  title?: string;
+}) {
   return (
     <div>
       <label htmlFor={name} className="text-xs font-semibold uppercase tracking-widest text-white/70">{label}</label>
@@ -1163,7 +1238,11 @@ function Field({ label, name, type = "text", placeholder }: { label: string; nam
         id={name}
         name={name}
         type={type}
-        autoComplete="off"
+        autoComplete={autoComplete}
+        inputMode={inputMode}
+        pattern={pattern}
+        required={required}
+        title={title}
         placeholder={placeholder}
         className="mt-2 w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-primary-foreground placeholder:text-white/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
       />
@@ -1205,10 +1284,7 @@ function Footer() {
       </div>
       <div className="container-page mt-0 pt-3 border-t border-border flex flex-col items-center justify-center gap-2 text-center text-xs text-muted-foreground sm:flex-row sm:flex-wrap sm:gap-3">
         <span>
-          © 2026 All Rights Reserved By Perspective Media Labs and Designed By{" "}
-          <a href="https://webakoof.com" target="_blank" rel="noreferrer" className="font-semibold text-primary-deep underline underline-offset-2 hover:text-navy transition-colors">
-            Webakoof
-          </a>
+          © 2026 All Rights Reserved By Perspective Media Labs
         </span>
         <span className="hidden text-border sm:inline">|</span>
         <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
