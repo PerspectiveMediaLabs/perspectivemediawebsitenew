@@ -248,10 +248,10 @@ const compare = [
 ];
 
 const testimonials = [
-  { name: "Hemant Bhamare", role: "Director, Ekvira Export House Pvt Ltd", initials: "HB", quote: "Perfect work. On-time delivery and very creative development. Highly satisfied with the overall work." },
+  { name: "Shubham Manmode", role: "Director, Nivesah Weddings", initials: "SM", quote: "Perfect work. On-time delivery and very creative development. Highly satisfied with the overall work." },
   { name: "Rushikesh Yadav", role: "Director, Impact Infraheights Pvt Ltd", initials: "RY", quote: "They understood our SaaS funnel in one call. Two months in, our CAC is half of what it was - with better leads." },
-  { name: "Jaydeep Gole", role: "Director, Jagruti Co-op Credit Society", initials: "JG", quote: "Fresh, bold, and refreshingly honest. They kill bad ideas fast so the good ones get real budget." },
-  { name: "Vikram Shah", role: "Co-founder, Payloop", initials: "VS", quote: "The AI automations they set up quietly run our lead ops. It's the most leverage we've ever gotten from a marketing partner." },
+  { name: "Jaydeep Gole", role: "Director, Jagruti Co-op Credit Society", initials: "JG", quote: "We had a wonderful experience working with PML on our Jagruti Co-op Credit Society website. Tejas is young, talented, professional, and understands requirements very well. His dedication and creative approach helped us build a website that reflects our organization effectively." },
+  { name: "Hemant Bhamare", role: "Director, Ekvira Export House Pvt Ltd", initials: "HB", quote: "The AI automations they set up quietly run our lead ops. It's the most leverage we've ever gotten from a marketing partner." },
 ];
 
 const values = [
@@ -504,11 +504,11 @@ function Clientele() {
       <div className="container-page text-center">
         <p className="text-xs tracking-widest uppercase text-muted-foreground">Trusted by leading brands</p>
       </div>
-      <div className="mt-8 relative overflow-hidden">
-        <div className="flex items-center gap-8 animate-marquee whitespace-nowrap w-max">
+      <div className="client-logo-marquee mt-8 overflow-hidden">
+        <div className="flex w-max items-center gap-4 whitespace-nowrap animate-marquee sm:gap-6 md:gap-8">
           {[...clientLogos, ...clientLogos].map((logo, i) => (
-            <div key={`${logo.src}-${i}`} className="flex h-36 w-72 shrink-0 items-center justify-center">
-              <img src={logo.src} alt={logo.alt} className={`h-32 w-64 object-contain transition-transform hover:scale-105 ${logo.darkBackground ? "rounded-xl bg-navy p-3" : "mix-blend-multiply"}`} loading="lazy" />
+            <div key={`${logo.src}-${i}`} className="flex h-24 w-40 shrink-0 items-center justify-center px-2 sm:h-28 sm:w-52 md:h-36 md:w-72">
+              <img src={logo.src} alt={logo.alt} className={`max-h-20 max-w-full object-contain transition-transform hover:scale-105 sm:max-h-24 md:max-h-32 ${logo.darkBackground ? "rounded-lg bg-navy p-2 md:rounded-xl md:p-3" : "mix-blend-multiply"}`} loading="lazy" />
             </div>
           ))}
         </div>
@@ -579,8 +579,8 @@ function Services() {
             </div>
           ))}
         </div>
-        <p className="mt-8 text-sm text-muted-foreground max-w-3xl">
-          Creative work across design, print, web, and video is executed through our curated network of vetted specialists - briefed, managed, and reported by us. You pay actuals. Always.
+        <p className="mt-8 text-center text-xs text-muted-foreground">
+          Creative work across design, print, web, and video is executed through our curated network of vetted specialists-briefed, managed, and reported by us. You pay actuals. Always.
         </p>
       </div>
     </section>
@@ -953,16 +953,16 @@ function Testimonials() {
         </div>
         <div className="mt-14 grid md:grid-cols-2 gap-6">
           {testimonials.map((t) => (
-            <figure key={t.name} className="card-elevated p-8">
+            <figure key={t.name} className="card-elevated flex h-full flex-col p-8">
               <Quote className="w-8 h-8 text-primary" />
-              <blockquote className="mt-4 text-lg text-navy leading-relaxed">"{t.quote}"</blockquote>
-              <figcaption className="mt-6 flex items-center gap-4">
-                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-primary-deep text-primary-foreground grid place-items-center font-semibold">{t.initials}</div>
+              <blockquote className="mt-4 text-lg leading-relaxed text-navy">"{t.quote}"</blockquote>
+              <figcaption className="mt-auto flex items-center gap-4 pt-6">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-primary to-primary-deep font-semibold text-primary-foreground">{t.initials}</div>
                 <div className="min-w-0">
                   <div className="font-semibold text-navy">{t.name}</div>
                   <div className="text-sm text-muted-foreground">{t.role}</div>
                 </div>
-                <div className="ml-auto flex text-primary">
+                <div className="ml-auto flex shrink-0 text-primary">
                   {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
               </figcaption>

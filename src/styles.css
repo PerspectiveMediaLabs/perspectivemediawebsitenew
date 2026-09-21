@@ -177,10 +177,25 @@
 
 @keyframes marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(calc(-50% - (var(--marquee-gap) / 2))); }
 }
 @utility animate-marquee {
+  --marquee-gap: 1rem;
   animation: marquee 75s linear infinite;
+  will-change: transform;
+}
+
+.client-logo-marquee {
+  mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+}
+
+@media (min-width: 640px) {
+  .animate-marquee { --marquee-gap: 1.5rem; }
+}
+
+@media (min-width: 768px) {
+  .animate-marquee { --marquee-gap: 2rem; }
 }
 
 @keyframes fade-up {
