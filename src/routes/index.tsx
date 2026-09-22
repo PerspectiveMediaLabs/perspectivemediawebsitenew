@@ -26,6 +26,8 @@ import {
   Globe,
   Share2,
   Linkedin,
+  Instagram,
+  Facebook,
 } from "lucide-react";
 
 import founderImg from "@/assets/founder-tejas-clear.jpeg";
@@ -38,6 +40,12 @@ const web3FormsAccessKey = "fde2369f-69ff-4cab-b539-c957a8e4d189";
 const pageTitle = "Perspective Media Labs | Marketing Partner for MSMEs";
 const pageDescription = "Strategy-led marketing for Indian MSMEs and startups, with senior attention across brand, content, digital, performance, and automation.";
 const socialImageUrl = `${siteUrl}/case-metryx-impact.png`;
+const socialLinks = [
+  { label: "Instagram", href: "https://instagram.com/perspectivemedialabs", Icon: Instagram },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61573664945058", Icon: Facebook },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/perspective-media-labs/", Icon: Linkedin },
+  { label: "Google Reviews", href: "https://share.google/P3xEBWpkRuwV5Zjdi", Icon: GoogleReviewsIcon },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -74,6 +82,23 @@ export const Route = createFileRoute("/")({
   }),
   component: LandingPage,
 });
+
+function GoogleReviewsIcon({ className = "" }: { className?: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`inline-flex items-center justify-center font-sans text-[1.05em] font-bold leading-none ${className}`}
+      style={{
+        background: "conic-gradient(from -35deg, #4285f4 0 28%, #34a853 28% 45%, #fbbc05 45% 66%, #ea4335 66% 82%, #4285f4 82% 100%)",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        color: "transparent",
+      }}
+    >
+      G
+    </span>
+  );
+}
 
 /* ---------- Data ---------- */
 
@@ -1129,7 +1154,26 @@ function ContactSection() {
             <li className="flex min-w-0 items-center gap-3"><Mail className="h-5 w-5 shrink-0 text-primary" /> <span className="min-w-0 break-all">connect@perspectivemedialabs.com</span></li>
             <li className="flex items-center gap-3"><Phone className="w-5 h-5 text-primary" /> +91 8668411092</li>
           </ul>
-          <div className="relative mt-6 aspect-square w-full overflow-hidden rounded-2xl border border-white/15 bg-white/5 md:aspect-auto md:min-h-24 md:flex-1">
+          <div className="mt-7 w-full">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/45">Follow and review us</p>
+            <div className="mt-3 flex flex-wrap gap-2.5">
+              {socialLinks.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open Perspective Media Labs on ${label}`}
+                  title={label}
+                  className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-primary transition hover:-translate-y-0.5 hover:border-primary hover:bg-white hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+                >
+                  <Icon className="h-4 w-4 transition group-hover:scale-110" />
+                  <span className="sr-only">{label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="relative mt-6 h-44 w-full max-w-sm overflow-hidden rounded-2xl border border-white/15 bg-white/5 sm:h-48">
             <iframe
               title="Perspective Media Labs location on Google Maps"
               src="https://maps.google.com/maps?q=18.6441317,73.8501899&z=16&output=embed"
