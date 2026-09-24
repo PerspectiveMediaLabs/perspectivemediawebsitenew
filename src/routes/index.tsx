@@ -40,6 +40,7 @@ const web3FormsAccessKey = "fde2369f-69ff-4cab-b539-c957a8e4d189";
 const pageTitle = "Perspective Media Labs | Marketing Partner for MSMEs";
 const pageDescription = "Strategy-led marketing for Indian MSMEs and startups, with senior attention across brand, content, digital, performance, and automation.";
 const socialImageUrl = `${siteUrl}/case-metryx-impact.png`;
+const googleMapsUrl = "https://www.google.com/maps/place/Perspective+Media+Labs/@18.6441317,73.8501899,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2b90ee16fb321:0x61e09bfd58ce86db!8m2!3d18.6441317!4d73.8501899!16s%2Fg%2F11xl3_xkmn?entry=ttu&g_ep=EgoyMDI2MDkyMS4wIKXMDSoASAFQAw%3D%3D";
 const socialLinks = [
   { label: "Instagram", href: "https://instagram.com/perspectivemedialabs", Icon: Instagram },
   { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61573664945058", Icon: Facebook },
@@ -274,7 +275,7 @@ const compare = [
 
 const testimonials = [
   { name: "Shubham Manmode", role: "Director, Nivesah Weddings", initials: "SM", quote: "Perfect work. On-time delivery and very creative development. Highly satisfied with the overall work." },
-  { name: "Rushikesh Yadav", role: "Director, Impact Infraheights Pvt Ltd", initials: "RY", quote: "They understood our SaaS funnel in one call. Two months in, our CAC is half of what it was - with better leads." },
+  { name: "Rushikesh Yadav", role: "Director, Impact Infraheights Pvt Ltd", initials: "RY", quote: "PML's creativity, responsiveness, and professional approach have consistently added value to our brand communication. A reliable partner with whom we are happy to work with." },
   { name: "Jaydeep Gole", role: "Director, Jagruti Co-op Credit Society", initials: "JG", quote: "We had a wonderful experience working with PML on our Jagruti Co-op Credit Society website. Tejas is young, talented, professional, and understands requirements very well. His dedication and creative approach helped us build a website that reflects our organization effectively." },
   { name: "Hemant Bhamare", role: "Director, Ekvira Export House Pvt Ltd", initials: "HB", quote: "The AI automations they set up quietly run our lead ops. It's the most leverage we've ever gotten from a marketing partner." },
 ];
@@ -1182,6 +1183,15 @@ function ContactSection() {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
+            <a
+              href={googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Perspective Media Labs location on Google Maps"
+              className="absolute inset-0 z-10 cursor-pointer"
+            >
+              <span className="sr-only">Open Perspective Media Labs location on Google Maps</span>
+            </a>
           </div>
         </div>
         <form
